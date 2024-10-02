@@ -18,9 +18,13 @@ class User extends AbstractEntity
     #[Email]
     private string $email;
 
-    public function __construct(string $email)
+    #[ORM\Column('birthdate', type: 'datetime')]
+    private ?\DateTime $birthdate;
+
+    public function __construct(string $email, ?\DateTime $birthdate)
     {
-        $this->email = $email;
+        $this->email     = $email;
+        $this->birthdate = $birthdate;
     }
 
     public function getEmail(): string
@@ -35,4 +39,15 @@ class User extends AbstractEntity
         return $this;
     }
 
+    public function getBirthdate(): ?\DateTime
+    {
+        return $this->birthdate;
+    }
+
+    public function setBirthdate(?\DateTime $birthdate): self
+    {
+        $this->birthdate = $birthdate;
+
+        return $this;
+    }
 }
