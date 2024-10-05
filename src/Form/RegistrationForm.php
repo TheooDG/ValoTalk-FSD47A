@@ -3,19 +3,20 @@
 namespace App\Form;
 
 use App\Entity\User;
-use Doctrine\DBAL\Types\DateType;
-use Doctrine\DBAL\Types\TextType;
-use MongoDB\BSON\Regex;
 use PHPUnit\Util\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Range;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class RegistrationForm extends AbstractType
 {
@@ -36,27 +37,39 @@ class RegistrationForm extends AbstractType
 
             ->add('email', EmailType::class, [
                 'constraints' => [
-                    new NotBlank(),
+                    new NotBlank([
+                        'message' => 'L\'adresse e-mail ne peut pas être vide.',
+                    ]),
+                    new Email([
+                        'message' => 'Veuillez entrer une adresse e-mail valide.',
+                    ])
                 ],
                 'label' => 'Adresse e-mail',
             ])
             ->add('password', PasswordType::class, [
                 'constraints' => [
-                    new NotBlank(),
-                    new Length(['min' => 6]),
+                    new NotBlank([
+                        'message' => 'Le mot de passe ne peut pas être vide.',
+                    ]),
+                    new Length([
+                        'min' => 6,
+                        'minMessage' => 'Le mot de passe doit comporter au moins {{ min }} caractères.',
+                        'max' => 4096,
+                        'maxMessage' => 'Votre mot de passe ne peut pas dépasser {{ max }} caractères.',
+                    ]),
                 ],
                 'label' => 'Mot de passe',
             ])
 
             ->add('birthdate', DateType::class, [
                 'constraints' => [
-                    new Type(\DateTime::class),
                     new Range([
                         'min'               => new \DateTime('1900-01-01'),
                         'max'               => new \DateTime('now'),
-                        'notInRangeMessage' => 'La date de naissance doit être entre {{ min }} et {{ max }}.',
+                        'notInRangeMessage' => 'La date de naissance doit comprise être entre {{ min }} et {{ max }}.',
                     ]),
                 ],
+                'label' => 'Date de naissance',
             ])
 
             ->add('submit', SubmitType::class, [
