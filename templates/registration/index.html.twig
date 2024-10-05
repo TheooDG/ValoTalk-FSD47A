@@ -1,0 +1,59 @@
+{# templates/registration/index.html.twig #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Créer un compte</title>
+    <link rel="stylesheet" href="/assets/styles/app.scss">
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <h1 class="title">Créer un compte</h1>
+
+        {# Affichage du formulaire d'inscription #}
+        {{ form_start(registrationForm, {'attr': {'class': 'box'}}) }}
+
+        <div class="field">
+            {{ form_label(registrationForm.username) }}
+            <div class="control">
+                {{ form_widget(registrationForm.username, {'attr': {'class': 'input'}}) }}
+            </div>
+            <p class="help is-danger">{{ form_errors(registrationForm.username) }}</p>
+        </div>
+
+        <div class="field">
+            {{ form_label(registrationForm.email) }}
+            <div class="control">
+                {{ form_widget(registrationForm.email, {'attr': {'class': 'input'}}) }}
+            </div>
+            <p class="help is-danger">{{ form_errors(registrationForm.email) }}</p>
+        </div>
+
+        <div class="field">
+            {{ form_label(registrationForm.password) }}
+            <div class="control">
+                {{ form_widget(registrationForm.password, {'attr': {'class': 'input'}}) }}
+            </div>
+            <p class="help is-danger">{{ form_errors(registrationForm.password) }}</p>
+        </div>
+
+        <div class="field">
+            {{ form_label(registrationForm.birthdate) }}
+            <div class="control">
+                {{ form_widget(registrationForm.birthdate, {'attr': {'class': 'input'}}) }}
+            </div>
+            <p class="help is-danger">{{ form_errors(registrationForm.birthdate) }}</p>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                {{ form_widget(registrationForm.submit, {'attr': {'class': 'button is-primary'}}) }}
+            </div>
+        </div>
+
+        {{ form_end(registrationForm) }}
+    </div>
+</section>
+</body>
+</html>
