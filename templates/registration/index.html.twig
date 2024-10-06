@@ -1,59 +1,70 @@
-{# templates/registration/index.html.twig #}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Créer un compte</title>
-    <link rel="stylesheet" href="/assets/styles/app.scss">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="/assets/styles/app.css">
 </head>
 <body>
-<section class="section">
-    <div class="container">
-        <h1 class="title">Créer un compte</h1>
+<header>
+    <h1>Inscription à ValoTalk</h1>
+</header>
 
-        {# Affichage du formulaire d'inscription #}
-        {{ form_start(registrationForm, {'attr': {'class': 'box'}}) }}
+<main>
+    <article>
+        <section>
+            <h2>Créez votre compte</h2>
+            <p>Remplissez les champs ci-dessous pour vous inscrire.</p>
 
-        <div class="field">
-            {{ form_label(registrationForm.username) }}
-            <div class="control">
-                {{ form_widget(registrationForm.username, {'attr': {'class': 'input'}}) }}
-            </div>
-            <p class="help is-danger">{{ form_errors(registrationForm.username) }}</p>
-        </div>
+            <!-- Formulaire d'inscription -->
+            <form action="{{ path('app_registration') }}" method="post" class="registration-form">
 
-        <div class="field">
-            {{ form_label(registrationForm.email) }}
-            <div class="control">
-                {{ form_widget(registrationForm.email, {'attr': {'class': 'input'}}) }}
-            </div>
-            <p class="help is-danger">{{ form_errors(registrationForm.email) }}</p>
-        </div>
+                <fieldset>
+                    <legend>Informations personnelles</legend>
 
-        <div class="field">
-            {{ form_label(registrationForm.password) }}
-            <div class="control">
-                {{ form_widget(registrationForm.password, {'attr': {'class': 'input'}}) }}
-            </div>
-            <p class="help is-danger">{{ form_errors(registrationForm.password) }}</p>
-        </div>
+                    <!-- Champ Nom d'utilisateur -->
+                    <div class="form-group">
+                        <label for="username">Nom d'utilisateur <span class="required">*</span></label>
+                        <input type="text" id="username" name="username" required maxlength="20">
+                    </div>
 
-        <div class="field">
-            {{ form_label(registrationForm.birthdate) }}
-            <div class="control">
-                {{ form_widget(registrationForm.birthdate, {'attr': {'class': 'input'}}) }}
-            </div>
-            <p class="help is-danger">{{ form_errors(registrationForm.birthdate) }}</p>
-        </div>
+                    <!-- Champ E-mail -->
+                    <div class="form-group">
+                        <label for="email">Adresse e-mail <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
 
-        <div class="field">
-            <div class="control">
-                {{ form_widget(registrationForm.submit, {'attr': {'class': 'button is-primary'}}) }}
-            </div>
-        </div>
+                    <!-- Champ Mot de passe -->
+                    <div class="form-group">
+                        <label for="password">Mot de passe <span class="required">*</span></label>
+                        <input type="password" id="password" name="password" required minlength="6">
+                    </div>
 
-        {{ form_end(registrationForm) }}
-    </div>
-</section>
+                    <!-- Champ Confirmation du mot de passe -->
+                    <div class="form-group">
+                        <label for="confirm_password">Confirmez le mot de passe <span class="required">*</span></label>
+                        <input type="password" id="confirm_password" name="confirm_password" required minlength="6">
+                    </div>
+
+                    <!-- Champ Date de naissance (optionnel) -->
+                    <div class="form-group">
+                        <label for="birthdate">Date de naissance</label>
+                        <input type="date" id="birthdate" name="birthdate">
+                    </div>
+                </fieldset>
+
+                <!-- Bouton de soumission -->
+                <div class="form-group">
+                    <button type="submit">Créer un compte</button>
+                </div>
+            </form>
+        </section>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2024 ValoTalk. Tous droits réservés.</p>
+</footer>
 </body>
 </html>

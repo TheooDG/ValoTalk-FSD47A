@@ -22,8 +22,17 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $data = $form->getData();
+
+            $password = $data['password'];
+            $confirmPassword = $request->get('registration_form')['confirm_password'];
+
+            if ($password !== $confirmPassword) {
+                $this->addFlash('error', 'Les mots de passe ne correspondent pas.');
+                return $this->render('registration/index.html.twig', [
+                    'registrationForm' => $form->createView(),
+                ]);
+            }
             $user->setUsername($data['username']);
             $user->setEmail($data['email']);
             $user->setPassword(

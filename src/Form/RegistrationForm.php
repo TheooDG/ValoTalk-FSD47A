@@ -7,6 +7,7 @@ use PHPUnit\Util\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -46,13 +47,18 @@ class RegistrationForm extends AbstractType
                 ],
                 'label' => 'Adresse e-mail',
             ])
-            ->add('password', PasswordType::class, [
+            ->add('password', RepeatedType::class, [
+                'type'=> PasswordType::class,
+                'first_options'  => ['label' => 'Mot de passe'],
+                'second_options' => ['label' => 'Confirmation du mot de passe'],
+                'invalid_message' => 'Les mots de passe ne correspondent pas.',
+                'mapped' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Le mot de passe ne peut pas être vide.',
                     ]),
                     new Length([
-                        'min' => 6,
+                        'min' => 12,
                         'minMessage' => 'Le mot de passe doit comporter au moins {{ min }} caractères.',
                         'max' => 4096,
                         'maxMessage' => 'Votre mot de passe ne peut pas dépasser {{ max }} caractères.',
