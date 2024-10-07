@@ -32,7 +32,7 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     #[ORM\Column('birthdate', type: 'datetime')]
     private ?\DateTime $birthdate;
 
-    public function __construct(string $username = '', string $email = '', string $password ='', \DateTime $birthdate = null)
+    public function __construct(string $username = '', string $email = '', string $password = '', \DateTime $birthdate = null)
     {
         $this->username  = $username;
         $this->email     = $email;
@@ -71,7 +71,7 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
 
     public function setPassword(string $password): self
     {
-        $this->password;
+        $this->password = $password;
 
         return $this;
     }
