@@ -1,0 +1,21 @@
+name: 🔗 CI
+
+on: push
+
+jobs:
+  php-cs:
+    name: 🧽 PHP CS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Moving into project
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Installing phpcs
+        shell: bash
+        run: composer install --optimize-autoloader --working-dir=tools/php-cs-fixer
+
+      - name: Running phpcs
+        shell: bash
+        run: php tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --using-cache=no --config=.php-cs-fixer.dist.php --verbose --diff --dry-run
