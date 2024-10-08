@@ -33,3 +33,4 @@
 /.idea/phpunit.xml
 /.idea/ValoTalk.iml
 /.idea/vcs.xml
+/tools/php-cs-fixer/vendor/
