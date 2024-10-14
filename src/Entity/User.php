@@ -31,7 +31,7 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     private string $password;
 
     #[ORM\Column('roles', type: 'json')]
-    private array $roles = ['ROLE_USER'];
+    private array $roles = [];
 
     #[ORM\Column('birthdate', type: 'datetime')]
     private ?\DateTime $birthdate;
@@ -58,7 +58,7 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     {
         $this->username  = $username;
         $this->email     = $email;
-        $this->setPassword($password); // Utiliser la méthode setPassword
+        $this->setPassword($password);
         $this->birthdate = $birthdate;
         $this->articles = new ArrayCollection();
         $this->comments = new ArrayCollection();
@@ -97,7 +97,7 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     public function setPassword(string $password): self
     {
         // Hacher le mot de passe avant de le stocker
-        $this->password = password_hash($password, PASSWORD_BCRYPT); // Utilisation de password_hash
+        $this->password = password_hash($password, PASSWORD_BCRYPT);
 
         return $this;
     }
