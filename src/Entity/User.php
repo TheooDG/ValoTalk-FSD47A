@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity]
 #[ORM\Table('user')]
@@ -22,6 +23,7 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     private string $username;
 
     #[ORM\Column('email', type: 'string')]
+    #[Assert\NotBlank]
     #[Email]
     private string $email;
 
@@ -29,7 +31,7 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     private string $password;
 
     #[ORM\Column('roles', type: 'json')]
-    private array $roles = [];
+    private array $roles = ['ROLE_USER'];
 
     #[ORM\Column('birthdate', type: 'datetime')]
     private ?\DateTime $birthdate;
@@ -56,7 +58,7 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     {
         $this->username  = $username;
         $this->email     = $email;
-        $this->password  = $password;
+        $this->setPassword($password); // Utiliser la méthode setPassword
         $this->birthdate = $birthdate;
         $this->articles = new ArrayCollection();
         $this->comments = new ArrayCollection();
@@ -94,7 +96,8 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
 
     public function setPassword(string $password): self
     {
-        $this->password = $password;
+        // Hacher le mot de passe avant de le stocker
+        $this->password = password_hash($password, PASSWORD_BCRYPT); // Utilisation de password_hash
 
         return $this;
     }
@@ -128,7 +131,8 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
 
     public function eraseCredentials(): void
     {
-        // supprime les données sensibles ne devant pas être conservées trop longtemps. Format : $this->var = null;
+        // Supprime les données sensibles ne devant pas être conservées trop longtemps. Par exemple :
+        // $this->password = null;
     }
 
     public function getUserIdentifier(): string
