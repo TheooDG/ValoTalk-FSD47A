@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -32,12 +34,33 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     #[ORM\Column('birthdate', type: 'datetime')]
     private ?\DateTime $birthdate;
 
-    public function __construct(string $username = '', string $email = '', string $password ='', \DateTime $birthdate = null)
+    /**
+     * @var Collection<int, Article>
+     */
+    #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'createdBy')]
+    private Collection $articles;
+
+    /**
+     * @var Collection<int, Comment>
+     */
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'createdBy')]
+    private Collection $comments;
+
+    /**
+     * @var Collection<int, Rate>
+     */
+    #[ORM\OneToMany(targetEntity: Rate::class, mappedBy: 'givenBy')]
+    private Collection $rates;
+
+    public function __construct(string $username = '', string $email = '', string $password = '', \DateTime $birthdate = null)
     {
         $this->username  = $username;
         $this->email     = $email;
         $this->password  = $password;
         $this->birthdate = $birthdate;
+        $this->articles = new ArrayCollection();
+        $this->comments = new ArrayCollection();
+        $this->rates = new ArrayCollection();
     }
 
     public function getUsername(): string
@@ -71,7 +94,7 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
 
     public function setPassword(string $password): self
     {
-        $this->password;
+        $this->password = $password;
 
         return $this;
     }
@@ -111,5 +134,95 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     public function getUserIdentifier(): string
     {
         return $this->email;
+    }
+
+    /**
+     * @return Collection<int, Article>
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): static
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles->add($article);
+            $article->setCreatedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): static
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getCreatedBy() === $this) {
+                $article->setCreatedBy(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): static
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments->add($comment);
+            $comment->setCreatedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): static
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getCreatedBy() === $this) {
+                $comment->setCreatedBy(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Rate>
+     */
+    public function getRates(): Collection
+    {
+        return $this->rates;
+    }
+
+    public function addRate(Rate $rate): static
+    {
+        if (!$this->rates->contains($rate)) {
+            $this->rates->add($rate);
+            $rate->setGivenBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRate(Rate $rate): static
+    {
+        if ($this->rates->removeElement($rate)) {
+            // set the owning side to null (unless already changed)
+            if ($rate->getGivenBy() === $this) {
+                $rate->setGivenBy(null);
+            }
+        }
+
+        return $this;
     }
 }

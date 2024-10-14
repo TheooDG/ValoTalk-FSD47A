@@ -23,7 +23,6 @@ security:
                 username_parameter: email
                 password_parameter: password
                 default_target_path: home
-
             logout:
                 path: logout
                 target: home
@@ -32,12 +31,11 @@ security:
         ROLE_ADMIN: ROLE_USER
 
     access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/home, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/register, roles: PUBLIC_ACCESS }
+        - { path: ^/home, roles: PUBLIC_ACCESS }
+        - { path: ^/, roles: PUBLIC_ACCESS }
 
 when@test:
     security:
