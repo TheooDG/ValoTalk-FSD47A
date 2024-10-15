@@ -18,47 +18,51 @@
             <p>Remplissez les champs ci-dessous pour vous inscrire.</p>
 
             <!-- Formulaire d'inscription -->
-            <form action="{{ path('registration') }}" method="post" class="registration-form">
+            {{ form_start(registrationForm, {'method': 'POST', 'attr': {'class': 'registration-form'}}) }}
 
-                <fieldset>
-                    <legend>Informations personnelles</legend>
+            <fieldset>
+                <legend>Informations personnelles</legend>
 
-                    <!-- Champ Nom d'utilisateur -->
-                    <div class="form-group">
-                        <label for="username">Nom d'utilisateur <span class="required">*</span></label>
-                        <input type="text" id="username" name="username" required maxlength="20">
-                    </div>
-
-                    <!-- Champ E-mail -->
-                    <div class="form-group">
-                        <label for="email">Adresse e-mail <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <!-- Champ Mot de passe -->
-                    <div class="form-group">
-                        <label for="password">Mot de passe <span class="required">*</span></label>
-                        <input type="password" id="password" name="password" required minlength="6">
-                    </div>
-
-                    <!-- Champ Confirmation du mot de passe -->
-                    <div class="form-group">
-                        <label for="confirm_password">Confirmez le mot de passe <span class="required">*</span></label>
-                        <input type="password" id="confirm_password" name="confirm_password" required minlength="6">
-                    </div>
-
-                    <!-- Champ Date de naissance (optionnel) -->
-                    <div class="form-group">
-                        <label for="birthdate">Date de naissance</label>
-                        <input type="date" id="birthdate" name="birthdate">
-                    </div>
-                </fieldset>
-
-                <!-- Bouton de soumission -->
+                <!-- Champ Nom d'utilisateur -->
                 <div class="form-group">
-                    <button type="submit">Créer un compte</button>
+                    {{ form_label(registrationForm.username) }}
+                    {{ form_widget(registrationForm.username) }}
+                    {{ form_errors(registrationForm.username) }}
                 </div>
-            </form>
+
+                <!-- Champ E-mail -->
+                <div class="form-group">
+                    {{ form_label(registrationForm.email) }}
+                    {{ form_widget(registrationForm.email) }}
+                    {{ form_errors(registrationForm.email) }}
+                </div>
+
+                <!-- Champ Mot de passe -->
+                <div class="form-group">
+                    {{ form_label(registrationForm.password.first) }}
+                    {{ form_widget(registrationForm.password.first) }}
+                    {{ form_errors(registrationForm.password.first) }}
+                </div>
+
+                <!-- Champ Date de naissance (optionnel) -->
+                <div class="form-group">
+                    {{ form_label(registrationForm.birthdate) }}
+                    {{ form_widget(registrationForm.birthdate) }}
+                    {{ form_errors(registrationForm.birthdate) }}
+                </div>
+            </fieldset>
+
+            <!-- Bouton de soumission -->
+            <div class="form-group">
+                <button type="submit">Créer un compte</button>
+            </div>
+
+            {{ form_end(registrationForm) }}
+
+            {% for message in app.flashes('error') %}
+                <div class="alert alert-danger">{{ message }}</div>
+            {% endfor %}
+
         </section>
     </article>
 </main>

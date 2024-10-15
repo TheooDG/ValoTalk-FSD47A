@@ -25,7 +25,7 @@ class RegistrationController extends AbstractController
             $data = $form->getData();
 
             // Vérification si le nom d'utilisateur est déjà utilisé
-            $existingUserByUsername = $entityManager->getRepository(User::class)->findOneBy(['username' => $data['username']]);
+            $existingUserByUsername = $entityManager->getRepository(User::class)->findOneBy(['username' => $data->getUsername()]); // Utiliser la méthode getUsername()
 
             if ($existingUserByUsername) {
                 $this->addFlash('error', 'Ce nom d\'utilisateur est déjà utilisé.');
@@ -36,7 +36,7 @@ class RegistrationController extends AbstractController
             }
 
             // Vérification de l'email
-            $existingUser = $entityManager->getRepository(User::class)->findOneBy(['email' => $data['email']]);
+            $existingUser = $entityManager->getRepository(User::class)->findOneBy(['email' => $data->getEmail()]); // Utiliser la méthode getEmail()
 
             if ($existingUser) {
                 $this->addFlash('error', 'Cet email est déjà utilisé.');
@@ -46,20 +46,8 @@ class RegistrationController extends AbstractController
                 ]);
             }
 
-            // Vérification des mots de passe
-            $password        = $data['password'];
-            $confirmPassword = $request->get('registration_form')['confirm_password'];
-
-            if ($password !== $confirmPassword) {
-                $this->addFlash('error', 'Les mots de passe ne correspondent pas.');
-
-                return $this->render('registration/index.html.twig', [
-                    'registrationForm' => $form->createView(),
-                ]);
-            }
-
             // Vérification de la date de naissance (doit être dans le passé)
-            if ($data['birthdate'] >= new \DateTime()) {
+            if ($data->getBirthdate() >= new \DateTime()) { // Utiliser la méthode getBirthdate()
                 $this->addFlash('error', 'La date de naissance doit être dans le passé.');
 
                 return $this->render('registration/index.html.twig', [
@@ -68,12 +56,12 @@ class RegistrationController extends AbstractController
             }
 
             // Création de l'utilisateur
-            $user->setUsername($data['username']);
-            $user->setEmail($data['email']);
+            $user->setUsername($data->getUsername());
+            $user->setEmail($data->getEmail());
             $user->setPassword(
-                $passwordHasher->hashPassword($user, $data['password'])
+                $passwordHasher->hashPassword($user, $data->getPassword())
             );
-            $user->setBirthdate($data['birthdate']);
+            $user->setBirthdate($data->getBirthdate());
 
             // Sauvegarde de l'utilisateur
             $entityManager->persist($user);
@@ -81,6 +69,7 @@ class RegistrationController extends AbstractController
 
             return $this->redirectToRoute('login');
         }
+
 
         return $this->render('registration/index.html.twig', [
             'registrationForm' => $form->createView(),

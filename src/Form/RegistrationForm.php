@@ -49,10 +49,6 @@ class RegistrationForm extends AbstractType
             ])
             ->add('password', RepeatedType::class, [
                 'type'=> PasswordType::class,
-                'first_options'  => ['label' => 'Mot de passe'],
-                'second_options' => ['label' => 'Confirmation du mot de passe'],
-                'invalid_message' => 'Les mots de passe ne correspondent pas.',
-                'mapped' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Le mot de passe ne peut pas être vide.',

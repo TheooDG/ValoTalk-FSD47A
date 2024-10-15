@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity]
-#[ORM\Table('user')]
+#[ORM\Table('app_user')]
 class User extends AbstractEntity implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -35,6 +35,12 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
 
     #[ORM\Column('birthdate', type: 'datetime')]
     private ?\DateTime $birthdate;
+
+    #[ORM\Column('created_at', type: 'datetime')]
+    protected $createdAt = null;
+
+    #[ORM\Column('updated_at', type: 'datetime')]
+    protected $updatedAt = null;
 
     /**
      * @var Collection<int, Article>
@@ -60,6 +66,8 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
         $this->email     = $email;
         $this->setPassword($password);
         $this->birthdate = $birthdate;
+        $this->createdAt = new \DateTimeImmutable();
+        $this->updatedAt = new \DateTimeImmutable();
         $this->articles = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->rates = new ArrayCollection();
@@ -97,7 +105,7 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     public function setPassword(string $password): self
     {
         // Hacher le mot de passe avant de le stocker
-        $this->password = password_hash($password, PASSWORD_BCRYPT);
+        $this->password = $password;
 
         return $this;
     }
