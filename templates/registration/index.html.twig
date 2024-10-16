@@ -14,7 +14,6 @@
 <main>
     <article>
         <section>
-            <h2>Créez votre compte</h2>
             <p>Remplissez les champs ci-dessous pour vous inscrire.</p>
 
             <!-- Formulaire d'inscription -->
@@ -39,9 +38,9 @@
 
                 <!-- Champ Mot de passe -->
                 <div class="form-group">
-                    {{ form_label(registrationForm.password.first) }}
-                    {{ form_widget(registrationForm.password.first) }}
-                    {{ form_errors(registrationForm.password.first) }}
+                    {{ form_label(registrationForm.password) }}
+                    {{ form_widget(registrationForm.password) }}
+                    {{ form_errors(registrationForm.password) }}
                 </div>
 
                 <!-- Champ Date de naissance (optionnel) -->
@@ -51,11 +50,6 @@
                     {{ form_errors(registrationForm.birthdate) }}
                 </div>
             </fieldset>
-
-            <!-- Bouton de soumission -->
-            <div class="form-group">
-                <button type="submit">Créer un compte</button>
-            </div>
 
             {{ form_end(registrationForm) }}
 

@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>931</IntrospectionStateNumber>
+      <IntrospectionStateNumber>940</IntrospectionStateNumber>
       <ServerVersion>15.2</ServerVersion>
       <StartupTime>1729007921</StartupTime>
       <TimeZones>true ACDT
@@ -807,7 +807,7 @@ true posixrules
 13206||10|C|G
 13206||-9223372036854775808|U|G
 13206||10|U|G</Grants>
-      <IntrospectionStateNumber>931</IntrospectionStateNumber>
+      <IntrospectionStateNumber>940</IntrospectionStateNumber>
       <ObjectId>25203</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4220,8 +4220,8 @@ true posixrules
     <schema id="262" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>931</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-10-15.17:45:15</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>940</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-10-16.07:29:15</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4413,9 +4413,8 @@ true posixrules
     </column>
     <column id="289" parent="271" name="birthdate">
       <DasType>timestamp(0)|0s</DasType>
-      <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>926</StateNumber>
+      <StateNumber>938</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="290" parent="271" name="deleted_at">

@@ -16,6 +16,10 @@ class RegistrationController extends AbstractController
     #[Route('/registration', name: 'registration')]
     public function register(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('home');
+        }
+
         $user = new User();
         $form = $this->createForm(RegistrationForm::class, $user);
 
@@ -69,7 +73,6 @@ class RegistrationController extends AbstractController
 
             return $this->redirectToRoute('login');
         }
-
 
         return $this->render('registration/index.html.twig', [
             'registrationForm' => $form->createView(),

@@ -7,8 +7,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\Email;
 
 #[ORM\Entity]
 #[ORM\Table('app_user')]
@@ -33,14 +33,14 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     #[ORM\Column('roles', type: 'json')]
     private array $roles = [];
 
-    #[ORM\Column('birthdate', type: 'datetime')]
+    #[ORM\Column('birthdate', type: 'datetime', nullable: true)]
     private ?\DateTime $birthdate;
 
     #[ORM\Column('created_at', type: 'datetime')]
-    protected $createdAt = null;
+    protected $createdAt;
 
     #[ORM\Column('updated_at', type: 'datetime')]
-    protected $updatedAt = null;
+    protected $updatedAt;
 
     /**
      * @var Collection<int, Article>
@@ -62,15 +62,16 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
 
     public function __construct(string $username = '', string $email = '', string $password = '', \DateTime $birthdate = null)
     {
-        $this->username  = $username;
-        $this->email     = $email;
+        $this->username = $username;
+        $this->email    = $email;
         $this->setPassword($password);
         $this->birthdate = $birthdate;
+        $this->roles     = ['ROLE_USER'];
         $this->createdAt = new \DateTimeImmutable();
         $this->updatedAt = new \DateTimeImmutable();
-        $this->articles = new ArrayCollection();
-        $this->comments = new ArrayCollection();
-        $this->rates = new ArrayCollection();
+        $this->articles  = new ArrayCollection();
+        $this->comments  = new ArrayCollection();
+        $this->rates     = new ArrayCollection();
     }
 
     public function getUsername(): string
