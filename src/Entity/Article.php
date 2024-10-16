@@ -28,19 +28,30 @@ class Article
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'articles')]
+    #[ORM\ManyToOne(targetEntity: User::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $createdBy = null;
+
+    #[ORM\ManyToOne(targetEntity: Agent::class, inversedBy: 'articles')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Agent $agent = null;
 
     /**
      * @var Collection<int, Rate>
      */
     #[ORM\OneToMany(targetEntity: Rate::class, mappedBy: 'article')]
+    #[ORM\JoinColumn(nullable: true)]
     private Collection $rates;
+
+    #[ORM\Column(type: Types::FLOAT, nullable: true)]
+    private ?float $rating = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $image = null;
 
     public function __construct()
     {
-        $this->rates = new ArrayCollection();
+        $this->rates     = new ArrayCollection();
         $this->createdAt = new \DateTimeImmutable();
     }
 
@@ -83,9 +94,45 @@ class Article
         return $this->createdBy;
     }
 
-    public function setCreatedBy(?User $createdBy): static
+    public function setCreatedBy(User $createdBy): static
     {
         $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getAgent(): ?Agent
+    {
+        return $this->agent;
+    }
+
+    public function setAgent(?Agent $agent): static
+    {
+        $this->agent = $agent;
+
+        return $this;
+    }
+
+    public function getRating(): ?float
+    {
+        return $this->rating;
+    }
+
+    public function setRating(?float $rating): static
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }

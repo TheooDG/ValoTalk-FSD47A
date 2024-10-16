@@ -13,14 +13,14 @@ class Agent
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'string', length: 255)]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
     private ?string $role = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $picture = null;
+    private ?string $image = null;
 
     public function getId(): ?int
     {
@@ -32,7 +32,7 @@ class Agent
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -51,14 +51,14 @@ class Agent
         return $this;
     }
 
-    public function getPicture(): ?string
+    public function getImage(): ?string
     {
-        return $this->picture;
+        return $this->image;
     }
 
-    public function setPicture(string $picture): static
+    public function setImage(string $image): static
     {
-        $this->picture = $picture;
+        $this->image = $image;
 
         return $this;
     }

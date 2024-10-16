@@ -6,6 +6,9 @@
 parameters:
 
 services:
+    App\Security\ArticleVoter:
+        tags:
+            - { name: 'security.voter' }
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.

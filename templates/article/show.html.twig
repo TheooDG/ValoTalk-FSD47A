@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
+    {% if article.agent %}
+        <p>Agent : {{ article.agent.name }}</p>
+    {% else %}
+        <p>Aucun agent associé.</p>
+    {% endif %}
+
+    {% if article.rating is not null %}
+        <p>Note : {{ article.rating }}</p>
+    {% else %}
+        <p>Aucune note attribuée.</p>
+    {% endif %}
+    <p>Ecrit par : {{ article.createdBy.username }}</p>
+    <p>Date de publication : {{ article.createdAt|date('d/m/Y H:i') }}</p>
+
+    {# Bouton Modifier #}
+    {% if is_granted('edit', article) %}
+        <a href="{{ path('article_edit', { id: article.id }) }}" class="btn btn-primary">Modifier</a>
+    {% endif %}
+
+{% endblock %}

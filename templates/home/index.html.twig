@@ -1,11 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-<h1>Bienvenue sur la page d'accueil !</h1>
-</body>
-</html>
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <h1>Accueil</h1>
+
+    <h2>Derniers articles publiés</h2>
+    <ul>
+        {% for article in latestArticles %}
+            <li>
+                <h3>{{ article.title }}</h3>
+                <p>Publié le : {{ article.createdAt|date('d/m/Y') }}</p>
+                <a href="{{ path('article_show', {id: article.id}) }}">Lire la suite</a>
+            </li>
+        {% else %}
+            <li>Aucun article récent trouvé.</li>
+        {% endfor %}
+    </ul>
+
+    {% if app.user %}
+        <h2>Vos derniers articles</h2>
+        <ul>
+            {% for article in userArticles %}
+                <li>
+                    <h3>{{ article.title }}</h3>
+                    <p>Publié le : {{ article.createdAt|date('d/m/Y') }}</p>
+                    <a href="{{ path('article_show', {id: article.id}) }}">Lire la suite</a>
+                </li>
+            {% else %}
+                <li>Vous n'avez pas encore publié d'articles.</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Connectez-vous pour voir vos articles publiés.</p>
+    {% endif %}
+
+{% endblock %}

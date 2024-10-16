@@ -3,17 +3,19 @@
 namespace App\Form;
 
 use App\Entity\Article;
+use App\Entity\Agent;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Doctrine\ORM\EntityRepository;
 
 class ArticleForm extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('title', TextType::class, [
@@ -22,26 +24,21 @@ class ArticleForm extends AbstractType
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu',
             ])
-            ->add('agent', ChoiceType::class, [
-                'label'   => 'Agent',
-                'choices' => [
-                    'Agent 1' => 'agent1',
-                    'Agent 2' => 'agent2',
-                    'Agent 3' => 'agent3',
-                    // Ajoute d'autres agents ici
-                ],
+            ->add('agent', EntityType::class, [
+                'class' => Agent::class,
+                'choice_label' => 'name',
+                'label' => 'Agent',
+                'placeholder' => 'Sélectionnez un agent',
+                'required' => false,
             ])
             ->add('rating', IntegerType::class, [
                 'label' => 'Note',
                 'attr'  => ['min' => 1, 'max' => 5],
-            ])
-            ->add('image', TextType::class, [
-                'label'    => 'URL de l\'image',
                 'required' => false,
             ]);
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Article::class,
