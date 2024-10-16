@@ -5,6 +5,7 @@
 {% block body %}
     <h1>{{ article.title }}</h1>
     <p>{{ article.content }}</p>
+
     {% if article.agent %}
         <p>Agent : {{ article.agent.name }}</p>
     {% else %}
@@ -16,12 +17,31 @@
     {% else %}
         <p>Aucune note attribuée.</p>
     {% endif %}
-    <p>Ecrit par : {{ article.createdBy.username }}</p>
+
+    <p>Écrit par : {{ article.createdBy.username }}</p>
     <p>Date de publication : {{ article.createdAt|date('d/m/Y H:i') }}</p>
 
     {# Bouton Modifier #}
     {% if is_granted('edit', article) %}
         <a href="{{ path('article_edit', { id: article.id }) }}" class="btn btn-primary">Modifier</a>
     {% endif %}
+
+    <h2>Commentaires</h2>
+    <div id="comments-container">
+        {% for comment in article.comments %}
+            <div class="comment">
+                <p>{{ comment.content }}</p>
+                <small>Posté par : {{ comment.createdBy.username }} le {{ comment.createdAt|date('Y-m-d H:i') }}</small>
+                <button class="delete-comment" data-comment-id="{{ comment.id }}">Supprimer</button>
+            </div>
+        {% endfor %}
+    </div>
+
+    <form id="comment-form" data-article-id="{{ article.id }}" method="post">
+        <textarea id="comment-content" name="content" required></textarea>
+        <button type="submit">Commenter</button>
+    </form>
+
+    {{ encore_entry_script_tags('comment') }}
 
 {% endblock %}

@@ -17,15 +17,16 @@ class HomeController extends AbstractController
         $latestArticles = $articleRepository->findBy([], ['createdAt' => 'DESC'], 5);
 
         // Récupère les derniers articles de l'utilisateur connecté
-        $user = $security->getUser();
+        $user         = $security->getUser();
         $userArticles = [];
+
         if ($user) {
             $userArticles = $articleRepository->findBy(['createdBy' => $user], ['createdAt' => 'DESC'], 5);
         }
 
         return $this->render('home/index.html.twig', [
             'latestArticles' => $latestArticles,
-            'userArticles' => $userArticles,
+            'userArticles'   => $userArticles,
         ]);
     }
 }

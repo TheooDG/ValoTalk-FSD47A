@@ -4,17 +4,17 @@ namespace App\Security;
 
 use App\Entity\Article;
 use App\Entity\User;
-use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
 class ArticleVoter extends Voter
 {
-    const EDIT = 'edit';
-    const DELETE = 'delete';
+    public const EDIT   = 'edit';
+    public const DELETE = 'delete';
 
     protected function supports($attribute, $subject): bool
     {
-        return in_array($attribute, [self::EDIT, self::DELETE])
+        return \in_array($attribute, [self::EDIT, self::DELETE])
             && $subject instanceof Article;
     }
 

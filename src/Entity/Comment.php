@@ -26,6 +26,10 @@ class Comment
     #[ORM\JoinColumn(nullable: false)]
     private ?User $createdBy = null;
 
+    #[ORM\ManyToOne(inversedBy: 'comments')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Article $article = null; // Ajout de la relation avec Article
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -61,6 +65,18 @@ class Comment
     public function setCreatedBy(?User $createdBy): static
     {
         $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article; // Méthode pour obtenir l'article associé
+    }
+
+    public function setArticle(?Article $article): static
+    {
+        $this->article = $article; // Méthode pour définir l'article associé
 
         return $this;
     }

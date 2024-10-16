@@ -3,13 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use App\Entity\Agent;
+use App\Entity\Comment;
 use App\Form\ArticleForm;
 use App\Form\EditArticleForm;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +23,7 @@ class ArticleController extends AbstractController
 
     public function __construct(Security $security, EntityManagerInterface $entityManager)
     {
-        $this->security = $security;
+        $this->security      = $security;
         $this->entityManager = $entityManager;
     }
 
@@ -30,7 +31,7 @@ class ArticleController extends AbstractController
     public function new(Request $request): Response
     {
         $article = new Article();
-        $form = $this->createForm(ArticleForm::class, $article);
+        $form    = $this->createForm(ArticleForm::class, $article);
 
         $form->handleRequest($request);
 
@@ -55,12 +56,11 @@ class ArticleController extends AbstractController
         ]);
     }
 
-
-
     #[Route('/articles', name: 'article_list')]
     public function index(ArticleRepository $articleRepository): Response
     {
         $articles = $articleRepository->findAll();
+
         return $this->render('article/articles.html.twig', [
             'articles' => $articles,
         ]);
@@ -90,7 +90,7 @@ class ArticleController extends AbstractController
         }
 
         return $this->render('article/edit.html.twig', [
-            'form' => $form->createView(),
+            'form'    => $form->createView(),
             'article' => $article,
         ]);
     }
@@ -109,6 +109,52 @@ class ArticleController extends AbstractController
         }
 
         dump('Avant redirection');
+
         return $this->redirectToRoute('article_list');
     }
+
+    #[Route('/article/{id}/comment', name: 'article_comment', methods: ['POST'])]
+    public function comment(Request $request, Article $article): Response
+    {
+        // Vérifie si l'utilisateur est connecté
+        if (!$this->getUser()) {
+            return new JsonResponse(['error' => 'Unauthorized'], Response::HTTP_UNAUTHORIZED);
+        }
+
+        // Récupère le contenu du commentaire
+        $content = $request->request->get('content');
+
+        // Crée un nouvel objet Comment
+        $comment = new Comment();
+        $comment->setContent($content);
+        $comment->setCreatedBy($this->getUser());
+        $comment->setArticle($article);
+
+        try {
+            // Persiste le commentaire
+            $this->entityManager->persist($comment);
+            $this->entityManager->flush();
+
+            // Retourne une réponse JSON avec un message de succès
+            return new JsonResponse(['message' => 'Commentaire ajouté avec succès.'], Response::HTTP_CREATED);
+        } catch (\Exception $e) {
+            // Retourne une réponse JSON avec un message d'erreur
+            return new JsonResponse(['error' => 'Une erreur est survenue lors de l\'ajout du commentaire.'], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    #[Route('/comment/{id}/delete', name: 'comment_delete', methods: ['DELETE'])]
+    public function deleteComment(Comment $comment, EntityManagerInterface $entityManager): Response
+    {
+        // Vérifie si l'utilisateur est le propriétaire du commentaire
+        if ($comment->getCreatedBy() !== $this->getUser()) {
+            return new JsonResponse(['error' => 'Unauthorized'], Response::HTTP_UNAUTHORIZED);
+        }
+
+        $entityManager->remove($comment);
+        $entityManager->flush();
+
+        return new JsonResponse(['message' => 'Commentaire supprimé avec succès.']);
+    }
+
 }

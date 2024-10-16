@@ -4,5 +4,4 @@ namespace App\DataFixtures;
 
 class AppFixtures
 {
-
 }

@@ -40,7 +40,6 @@ class Article
      * @var Collection<int, Rate>
      */
     #[ORM\OneToMany(targetEntity: Rate::class, mappedBy: 'article')]
-    #[ORM\JoinColumn(nullable: true)]
     private Collection $rates;
 
     #[ORM\Column(type: Types::FLOAT, nullable: true)]
@@ -49,9 +48,16 @@ class Article
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
+    /**
+     * @var Collection<int, Comment>
+     */
+    #[ORM\OneToMany(mappedBy: 'article', targetEntity: Comment::class, cascade: ['persist', 'remove'])]
+    private Collection $comments;
+
     public function __construct()
     {
-        $this->rates     = new ArrayCollection();
+        $this->rates = new ArrayCollection();
+        $this->comments = new ArrayCollection(); // Initialiser la collection des commentaires
         $this->createdAt = new \DateTimeImmutable();
     }
 
@@ -161,6 +167,36 @@ class Article
             // set the owning side to null (unless already changed)
             if ($rate->getArticle() === $this) {
                 $rate->setArticle(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): static
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments->add($comment);
+            $comment->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): static
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getArticle() === $this) {
+                $comment->setArticle(null);
             }
         }
 

@@ -136,7 +136,6 @@ class AgentFixtures extends Fixture
                 'role'  => 'Sentinelle',
                 'image' => 'path/to/vyse_image.png',
             ],
-
         ];
 
         foreach ($agents as $data) {

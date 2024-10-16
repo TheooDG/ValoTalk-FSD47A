@@ -31,7 +31,6 @@ class AdminFixtures extends Fixture
         $hashedPassword = $this->passwordHasher->hashPassword($admin, 'adminpassword');
         $admin->setPassword($hashedPassword);
 
-
         $manager->persist($admin);
         $manager->flush();
     }

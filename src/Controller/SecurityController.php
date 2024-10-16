@@ -2,14 +2,12 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-use App\Entity\User;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class SecurityController extends AbstractController
 {
@@ -18,7 +16,7 @@ class SecurityController extends AbstractController
 
     public function __construct(EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher)
     {
-        $this->entityManager = $entityManager;
+        $this->entityManager  = $entityManager;
         $this->passwordHasher = $passwordHasher; // Injection du service password hasher
     }
 
@@ -29,12 +27,12 @@ class SecurityController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        $error = $authenticationUtils->getLastAuthenticationError();
+        $error        = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render('security/index.html.twig', [
             'lastUsername' => $lastUsername,
-            'error' => $error,
+            'error'        => $error,
         ]);
     }
 
