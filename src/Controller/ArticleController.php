@@ -131,30 +131,45 @@ class ArticleController extends AbstractController
         $comment->setArticle($article);
 
         try {
-            // Persiste le commentaire
             $this->entityManager->persist($comment);
             $this->entityManager->flush();
 
-            // Retourne une réponse JSON avec un message de succès
-            return new JsonResponse(['message' => 'Commentaire ajouté avec succès.'], Response::HTTP_CREATED);
+            // Réponse JSON succès
+            return new JsonResponse([
+                'success' => true,
+                'commentId' => $comment->getId(),
+                'username' => $this->getUser()->getUsername(), // Assurer que cela renvoie le bon nom d'utilisateur
+            ]);
         } catch (\Exception $e) {
-            // Retourne une réponse JSON avec un message d'erreur
+            // Réponse JSON erreur
             return new JsonResponse(['error' => 'Une erreur est survenue lors de l\'ajout du commentaire.'], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
-    #[Route('/comment/{id}/delete', name: 'comment_delete', methods: ['DELETE'])]
-    public function deleteComment(Comment $comment, EntityManagerInterface $entityManager): Response
+    #[Route('/article/{id}/comment/{commentId}/delete', name: 'comment_delete', methods: ['DELETE'])]
+    public function deleteComment(
+        Article $article,
+        int $commentId,
+        EntityManagerInterface $entityManager
+    ): JsonResponse
     {
-        // Vérifie si l'utilisateur est le propriétaire du commentaire
-        if ($comment->getCreatedBy() !== $this->getUser()) {
+        $comment = $entityManager->getRepository(Comment::class)->find($commentId);
+
+        if (!$comment || $comment->getArticle() !== $article) {
+            return new JsonResponse(['error' => 'Comment not found'], Response::HTTP_NOT_FOUND);
+        }
+
+        if (!$this->isGranted('delete_comment', $comment)) {
             return new JsonResponse(['error' => 'Unauthorized'], Response::HTTP_UNAUTHORIZED);
         }
 
-        $entityManager->remove($comment);
-        $entityManager->flush();
+        try {
+            $entityManager->remove($comment);
+            $entityManager->flush();
 
-        return new JsonResponse(['message' => 'Commentaire supprimé avec succès.']);
+            return new JsonResponse(['success' => true]);
+        } catch (\Exception $e) {
+            return new JsonResponse(['error' => 'Une erreur est survenue lors de la suppression.'], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
-
 }

@@ -28,7 +28,7 @@ class Comment
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Article $article = null; // Ajout de la relation avec Article
+    private ?Article $article = null;
 
     public function __construct()
     {
@@ -71,12 +71,12 @@ class Comment
 
     public function getArticle(): ?Article
     {
-        return $this->article; // Méthode pour obtenir l'article associé
+        return $this->article;
     }
 
     public function setArticle(?Article $article): static
     {
-        $this->article = $article; // Méthode pour définir l'article associé
+        $this->article = $article;
 
         return $this;
     }

@@ -2,6 +2,11 @@
 
 {% block title %}{{ article.title }}{% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('comment') }}
+{% endblock %}
+
 {% block body %}
     <h1>{{ article.title }}</h1>
     <p>{{ article.content }}</p>
@@ -27,21 +32,25 @@
     {% endif %}
 
     <h2>Commentaires</h2>
-    <div id="comments-container">
-        {% for comment in article.comments %}
-            <div class="comment">
-                <p>{{ comment.content }}</p>
-                <small>Posté par : {{ comment.createdBy.username }} le {{ comment.createdAt|date('Y-m-d H:i') }}</small>
-                <button class="delete-comment" data-comment-id="{{ comment.id }}">Supprimer</button>
-            </div>
-        {% endfor %}
+    <div id="comments-container" data-article-id="{{ article.id }}">
+        {% if article.comments is not empty %}
+            {% for comment in article.comments %}
+                <div class="comment" data-comment-id="{{ comment.id }}">
+                    <p>{{ comment.content }}</p>
+                    <small>Posté par : {{ comment.createdBy.username }} le {{ comment.createdAt|date('Y-m-d H:i') }}</small>
+                    {% if is_granted('delete_comment', comment) %}
+                        <button class="delete-comment" data-comment-id="{{ comment.id }}" aria-label="Supprimer le commentaire">Supprimer</button>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Aucun commentaire n'a encore été publié.</p>
+        {% endif %}
     </div>
 
     <form id="comment-form" data-article-id="{{ article.id }}" method="post">
-        <textarea id="comment-content" name="content" required></textarea>
+        <textarea id="comment-content" name="content" required placeholder="Écrire un commentaire..."></textarea>
         <button type="submit">Commenter</button>
     </form>
-
-    {{ encore_entry_script_tags('comment') }}
 
 {% endblock %}

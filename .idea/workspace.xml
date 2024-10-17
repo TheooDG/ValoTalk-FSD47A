@@ -5,22 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbd9e511-a11e-4d1f-abaf-e968eaffb938" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Security/CommentVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AdminFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AdminFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AgentFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AgentFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Rate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Rate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ArticleForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ArticleForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/EditArticleForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EditArticleForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/ArticleVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/ArticleVoter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/article/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,10 +203,10 @@
       <path value="$PROJECT_DIR$/tools/php-cs-fixer/vendor/psr/event-dispatcher" />
     </include_path>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2nTqsEcKsuXs2Uz7jcEdUUhCTzK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -230,6 +221,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -265,7 +257,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729007620747</updated>
-      <workItem from="1729007622303" duration="45143000" />
+      <workItem from="1729007622303" duration="45867000" />
+      <workItem from="1729148947595" duration="10851000" />
     </task>
     <servers />
   </component>
