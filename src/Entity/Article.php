@@ -36,12 +36,6 @@ class Article
     #[ORM\JoinColumn(nullable: true)]
     private ?Agent $agent = null;
 
-    /**
-     * @var Collection<int, Rate>
-     */
-    #[ORM\OneToMany(targetEntity: Rate::class, mappedBy: 'article')]
-    private Collection $rates;
-
     #[ORM\Column(type: Types::FLOAT, nullable: true)]
     private ?float $rating = null;
 
@@ -56,8 +50,7 @@ class Article
 
     public function __construct()
     {
-        $this->rates = new ArrayCollection();
-        $this->comments = new ArrayCollection(); // Initialiser la collection des commentaires
+        $this->comments  = new ArrayCollection();
         $this->createdAt = new \DateTimeImmutable();
     }
 
@@ -144,36 +137,6 @@ class Article
     }
 
     /**
-     * @return Collection<int, Rate>
-     */
-    public function getRates(): Collection
-    {
-        return $this->rates;
-    }
-
-    public function addRate(Rate $rate): static
-    {
-        if (!$this->rates->contains($rate)) {
-            $this->rates->add($rate);
-            $rate->setArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRate(Rate $rate): static
-    {
-        if ($this->rates->removeElement($rate)) {
-            // set the owning side to null (unless already changed)
-            if ($rate->getArticle() === $this) {
-                $rate->setArticle(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, Comment>
      */
     public function getComments(): Collection
@@ -194,7 +157,6 @@ class Article
     public function removeComment(Comment $comment): static
     {
         if ($this->comments->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
             if ($comment->getArticle() === $this) {
                 $comment->setArticle(null);
             }

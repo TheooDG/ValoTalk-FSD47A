@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,6 +12,18 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class UserController extends AbstractController
 {
+    #[Route('/profile/{id}', name: 'user_profile')]
+    public function profile(User $user, ArticleRepository $articleRepository): Response
+    {
+        // Récupérer les articles publiés par l'utilisateur
+        $articles = $articleRepository->findBy(['createdBy' => $user]);
+
+        return $this->render('user/profile.html.twig', [
+            'user' => $user,
+            'articles' => $articles,
+        ]);
+    }
+
     #[Route('/admin/users', name: 'user_list')]
     public function list(EntityManagerInterface $entityManager): Response
     {

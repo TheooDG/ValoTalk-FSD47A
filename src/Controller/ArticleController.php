@@ -51,7 +51,7 @@ class ArticleController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        return $this->render('article/index.html.twig', [
+        return $this->render('article/new.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -110,7 +110,7 @@ class ArticleController extends AbstractController
 
         dump('Avant redirection');
 
-        return $this->redirectToRoute('article_list');
+        return $this->redirectToRoute('user_profile', ['id' => $this->getUser()->getId()]);
     }
 
     #[Route('/article/{id}/comment', name: 'article_comment', methods: ['POST'])]
@@ -136,9 +136,9 @@ class ArticleController extends AbstractController
 
             // Réponse JSON succès
             return new JsonResponse([
-                'success' => true,
+                'success'   => true,
                 'commentId' => $comment->getId(),
-                'username' => $this->getUser()->getUsername(), // Assurer que cela renvoie le bon nom d'utilisateur
+                'username'  => $this->getUser()->getUsername(), // Assurer que cela renvoie le bon nom d'utilisateur
             ]);
         } catch (\Exception $e) {
             // Réponse JSON erreur
@@ -151,8 +151,7 @@ class ArticleController extends AbstractController
         Article $article,
         int $commentId,
         EntityManagerInterface $entityManager
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $comment = $entityManager->getRepository(Comment::class)->find($commentId);
 
         if (!$comment || $comment->getArticle() !== $article) {

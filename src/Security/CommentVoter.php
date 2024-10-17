@@ -13,7 +13,7 @@ class CommentVoter extends Voter
 
     protected function supports($attribute, $subject): bool
     {
-        return $attribute === self::DELETE && $subject instanceof Comment;
+        return self::DELETE === $attribute && $subject instanceof Comment;
     }
 
     protected function voteOnAttribute($attribute, $comment, TokenInterface $token): bool

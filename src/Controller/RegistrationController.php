@@ -34,7 +34,7 @@ class RegistrationController extends AbstractController
             if ($existingUserByUsername) {
                 $this->addFlash('error', 'Ce nom d\'utilisateur est déjà utilisé.');
 
-                return $this->render('registration/index.html.twig', [
+                return $this->render('registration/new.html.twig', [
                     'registrationForm' => $form->createView(),
                 ]);
             }
@@ -45,7 +45,7 @@ class RegistrationController extends AbstractController
             if ($existingUser) {
                 $this->addFlash('error', 'Cet email est déjà utilisé.');
 
-                return $this->render('registration/index.html.twig', [
+                return $this->render('registration/new.html.twig', [
                     'registrationForm' => $form->createView(),
                 ]);
             }

@@ -54,12 +54,6 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'createdBy')]
     private Collection $comments;
 
-    /**
-     * @var Collection<int, Rate>
-     */
-    #[ORM\OneToMany(targetEntity: Rate::class, mappedBy: 'givenBy')]
-    private Collection $rates;
-
     public function __construct(string $username = '', string $email = '', string $password = '', \DateTime $birthdate = null)
     {
         $this->username = $username;
@@ -71,7 +65,6 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
         $this->updatedAt = new \DateTimeImmutable();
         $this->articles  = new ArrayCollection();
         $this->comments  = new ArrayCollection();
-        $this->rates     = new ArrayCollection();
     }
 
     public function getUsername(): string
@@ -170,7 +163,7 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     public function removeArticle(Article $article): static
     {
         if ($this->articles->removeElement($article)) {
-            // set the owning side to null (unless already changed)
+
             if ($article->getCreatedBy() === $this) {
                 $article->setCreatedBy(null);
             }
@@ -200,39 +193,9 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     public function removeComment(Comment $comment): static
     {
         if ($this->comments->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
+
             if ($comment->getCreatedBy() === $this) {
                 $comment->setCreatedBy(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Rate>
-     */
-    public function getRates(): Collection
-    {
-        return $this->rates;
-    }
-
-    public function addRate(Rate $rate): static
-    {
-        if (!$this->rates->contains($rate)) {
-            $this->rates->add($rate);
-            $rate->setGivenBy($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRate(Rate $rate): static
-    {
-        if ($this->rates->removeElement($rate)) {
-            // set the owning side to null (unless already changed)
-            if ($rate->getGivenBy() === $this) {
-                $rate->setGivenBy(null);
             }
         }
 

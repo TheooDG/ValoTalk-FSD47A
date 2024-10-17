@@ -5,13 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbd9e511-a11e-4d1f-abaf-e968eaffb938" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Security/CommentVoter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/article/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/profile.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40/storage_v2/_src_/database/valotalk.Guukqw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40/storage_v2/_src_/database/valotalk.Guukqw/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/article/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Rate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/CommentVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/CommentVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +268,7 @@
       <option name="presentableId" value="Default" />
       <updated>1729007620747</updated>
       <workItem from="1729007622303" duration="45867000" />
-      <workItem from="1729148947595" duration="10851000" />
+      <workItem from="1729148947595" duration="21061000" />
     </task>
     <servers />
   </component>

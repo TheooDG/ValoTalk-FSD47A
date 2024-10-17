@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Profil de {{ user.username }}</h1>
+
+{% if user.birthdate %}
+    <p>Date de naissance : {{ user.birthdate|date('d/m/Y') }}</p>
+{% endif %}
+
+<h2>Articles publiés</h2>
+<ul>
+    {% for article in articles %}
+        <li>
+            <a href="{{ path('article_show', { 'id': article.id }) }}">{{ article.title }}</a>
+        </li>
+    {% else %}
+        <li>Aucun article publié.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
