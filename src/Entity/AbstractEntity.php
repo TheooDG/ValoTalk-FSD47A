@@ -9,7 +9,15 @@ abstract class AbstractEntity
 {
     use TimestampableEntity;
 
+    /**
+     * @ORM\Id
+     *
+     * @ORM\GeneratedValue
+     *
+     * @ORM\Column(type="integer")
+     */
     protected $id;
+
     #[ORM\Column(type: 'datetime', nullable: true)]
     protected $deletedAt;
 
