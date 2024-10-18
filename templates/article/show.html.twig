@@ -17,12 +17,6 @@
         <p>Aucun agent associé.</p>
     {% endif %}
 
-    {% if article.rating is not null %}
-        <p>Note : {{ article.rating }}</p>
-    {% else %}
-        <p>Aucune note attribuée.</p>
-    {% endif %}
-
     <p>Écrit par : {{ article.createdBy.username }}</p>
     <p>Date de publication : {{ article.createdAt|date('d/m/Y H:i') }}</p>
 

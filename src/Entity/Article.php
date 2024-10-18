@@ -36,9 +36,6 @@ class Article
     #[ORM\JoinColumn(nullable: true)]
     private ?Agent $agent = null;
 
-    #[ORM\Column(type: Types::FLOAT, nullable: true)]
-    private ?float $rating = null;
-
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
@@ -108,18 +105,6 @@ class Article
     public function setAgent(?Agent $agent): static
     {
         $this->agent = $agent;
-
-        return $this;
-    }
-
-    public function getRating(): ?float
-    {
-        return $this->rating;
-    }
-
-    public function setRating(?float $rating): static
-    {
-        $this->rating = $rating;
 
         return $this;
     }

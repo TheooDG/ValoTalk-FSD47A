@@ -28,11 +28,6 @@ class EditArticleForm extends AbstractType
                 'label'        => 'Agent',
                 'placeholder'  => 'Sélectionnez un agent',
                 'required'     => false,
-            ])
-            ->add('rating', \Symfony\Component\Form\Extension\Core\Type\IntegerType::class, [
-                'label'    => 'Note',
-                'attr'     => ['min' => 1, 'max' => 5],
-                'required' => false,
             ]);
     }
 

@@ -29,7 +29,7 @@ class RegistrationController extends AbstractController
             $data = $form->getData();
 
             // Vérification si le nom d'utilisateur est déjà utilisé
-            $existingUserByUsername = $entityManager->getRepository(User::class)->findOneBy(['username' => $data->getUsername()]); // Utiliser la méthode getUsername()
+            $existingUserByUsername = $entityManager->getRepository(User::class)->findOneBy(['username' => $data->getUsername()]);
 
             if ($existingUserByUsername) {
                 $this->addFlash('error', 'Ce nom d\'utilisateur est déjà utilisé.');
@@ -40,7 +40,7 @@ class RegistrationController extends AbstractController
             }
 
             // Vérification de l'email
-            $existingUser = $entityManager->getRepository(User::class)->findOneBy(['email' => $data->getEmail()]); // Utiliser la méthode getEmail()
+            $existingUser = $entityManager->getRepository(User::class)->findOneBy(['email' => $data->getEmail()]);
 
             if ($existingUser) {
                 $this->addFlash('error', 'Cet email est déjà utilisé.');
@@ -51,7 +51,7 @@ class RegistrationController extends AbstractController
             }
 
             // Vérification de la date de naissance (doit être dans le passé)
-            if ($data->getBirthdate() >= new \DateTime()) { // Utiliser la méthode getBirthdate()
+            if ($data->getBirthdate() >= new \DateTime()) {
                 $this->addFlash('error', 'La date de naissance doit être dans le passé.');
 
                 return $this->render('registration/index.html.twig', [

@@ -17,7 +17,7 @@ class SecurityController extends AbstractController
     public function __construct(EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher)
     {
         $this->entityManager  = $entityManager;
-        $this->passwordHasher = $passwordHasher; // Injection du service password hasher
+        $this->passwordHasher = $passwordHasher;
     }
 
     #[Route('/login', name: 'login')]

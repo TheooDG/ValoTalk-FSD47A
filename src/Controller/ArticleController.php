@@ -138,7 +138,7 @@ class ArticleController extends AbstractController
             return new JsonResponse([
                 'success'   => true,
                 'commentId' => $comment->getId(),
-                'username'  => $this->getUser()->getUsername(), // Assurer que cela renvoie le bon nom d'utilisateur
+                'username'  => $this->getUser()->getUsername(),
             ]);
         } catch (\Exception $e) {
             // Réponse JSON erreur
