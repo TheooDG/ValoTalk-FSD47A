@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbd9e511-a11e-4d1f-abaf-e968eaffb938" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Form/ChangePasswordForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/ProfileEditForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/user/edit_profile.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/profile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ChangePasswordForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ChangePasswordForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/change_password.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/change_password.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +257,7 @@
       <workItem from="1729007622303" duration="45867000" />
       <workItem from="1729148947595" duration="21705000" />
       <workItem from="1729238040469" duration="7377000" />
-      <workItem from="1729443837854" duration="2034000" />
+      <workItem from="1729443837854" duration="5272000" />
     </task>
     <servers />
   </component>

@@ -51,7 +51,16 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $currentPassword = $form->get('currentPassword')->getData();
             $newPassword = $form->get('plainPassword')->getData();
+
+            // Vérifie si le mot de passe actuel est correct
+            if (!$passwordHasher->isPasswordValid($user, $currentPassword)) {
+                $this->addFlash('error', 'Le mot de passe actuel est incorrect.');
+                return $this->redirectToRoute('user_change_password', ['id' => $user->getId()]);
+            }
+
+            // Met à jour le mot de passe
             $user->setPassword($passwordHasher->hashPassword($user, $newPassword));
             $entityManager->flush();
 
@@ -62,6 +71,8 @@ class UserController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+
 
     #[Route('/profile/{id}/delete', name: 'user_delete_profile')]
     public function deleteProfile(EntityManagerInterface $entityManager, User $user): Response

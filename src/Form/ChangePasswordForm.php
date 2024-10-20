@@ -16,17 +16,17 @@ class ChangePasswordForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('currentPassword', PasswordType::class, [
+                'label'       => 'Mot de passe actuel',
+                'constraints' => [
+                    new NotBlank(),
+                ],
+            ])
             ->add('plainPassword', PasswordType::class, [
                 'label'       => 'Nouveau mot de passe',
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez entrer un mot de passe',
-                    ]),
-                    new Length([
-                        'min'        => 6,
-                        'minMessage' => 'Votre mot de passe doit contenir au moins {{ limit }} caractères',
-                        'max'        => 4096,
-                    ]),
+                    new NotBlank(),
+                    new Length(['min' => 8]), // Par exemple, minimum 8 caractères
                 ],
             ])
             ->add('submit', SubmitType::class, ['label' => 'Changer le mot de passe']);
@@ -34,8 +34,6 @@ class ChangePasswordForm extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            'data_class' => User::class,
-        ]);
+        $resolver->setDefaults([]);
     }
 }
