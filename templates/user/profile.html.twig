@@ -4,6 +4,12 @@
 
 <h1>Profil de {{ user.username }}</h1>
 
+    <p>
+        <a href="{{ path('user_profile_edit', { id: user.id }) }}">Modifier le profil</a> |
+        <a href="{{ path('user_change_password', { id: user.id }) }}">Changer le mot de passe</a> |
+        <a href="{{ path('user_delete_profile', { id: user.id }) }}" onclick="return confirm('Voulez-vous vraiment supprimer votre compte ?')">Supprimer le compte</a>
+    </p>
+
 {% if user.birthdate %}
     <p>Date de naissance : {{ user.birthdate|date('d/m/Y') }}</p>
 {% endif %}
