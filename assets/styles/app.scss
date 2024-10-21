@@ -1,8 +1,10 @@
-// assets/styles/app.scss
-
-$primary-color: #FFFBF5;
-
-body {
-  background-color: $primary-color;
-  color: #fff;
-}
+@use 'variables';
+@use 'mixins';
+@use 'base';
+@use 'layout';
+@use 'components/header';
+@use 'components/footer';
+@use 'components/buttons';
+@use 'pages/home';
+@use 'pages/article';
+@use 'pages/profile';

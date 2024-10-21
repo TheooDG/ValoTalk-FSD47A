@@ -4,28 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}ValoTalk{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('build/app.scss') }}">
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
 </head>
 <body>
 
-<nav>
-    <ul>
-        <li><a href="{{ path('home') }}">Accueil</a></li>
-        <li><a href="{{ path('article_list') }}">Articles</a></li>
+<header>
+    {% if is_granted('ROLE_ADMIN') %}
+        <nav class="admin-nav">
+            <ul>
+                <li><a href="{{ path('admin_dashboard') }}">Dashboard admin</a></li>
+            </ul>
+        </nav>
+    {% endif %}
 
-        {% if app.user %}
-            <li><a href="{{ path('user_profile', { id: app.user.id }) }}">Mon Profil</a></li>
-            <li><a href="{{ path('logout') }}">Déconnexion</a></li>
-        {% else %}
-            <li><a href="{{ path('registration') }}">S'inscrire</a></li>
-            <li><a href="{{ path('login') }}">Se connecter</a></li>
-        {% endif %}
-    </ul>
-</nav>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="{{ path('home') }}">Accueil</a></li>
+            <li><a href="{{ path('article_list') }}">Articles</a></li>
+
+            {% if app.user %}
+                <li><a href="{{ path('article_new') }}">Rédiger un article</a></li>
+                <li><a href="{{ path('user_profile', { id: app.user.id }) }}">Mon Profil</a></li>
+                <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+            {% else %}
+                <li><a href="{{ path('registration') }}">S'inscrire</a></li>
+                <li><a href="{{ path('login') }}">Se connecter</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
 
 <div class="container">
     {% block body %}{% endblock %}
 </div>
+
+<footer>
+    <p>&copy; 2024 ValoTalk. All rights reserved.</p>
+    <nav>
+        <ul>
+            <li>Mentions légales</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+</footer>
 
 </body>
 </html>

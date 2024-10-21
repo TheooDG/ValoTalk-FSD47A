@@ -5,10 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbd9e511-a11e-4d1f-abaf-e968eaffb938" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/styles/base.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/components/_buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/components/_footer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/components/_header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/layout.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/pages/article.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/pages/home.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/pages/profile.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin_article/create.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin_article/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin_user/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminArticleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ChangePasswordForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ChangePasswordForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/change_password.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/change_password.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/create.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_user/create.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_user/list.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,26 +229,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;create-account&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "create-account",
+    "last_opened_file_path": "//wsl.localhost/Ubuntu/home/theo/projects/ValoTalk-FSD47A/templates/admin_article",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="\\wsl.localhost\Ubuntu\home\theo\projects\ValoTalk-FSD47A\templates\admin_article" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl.localhost\Ubuntu\home\theo\projects\ValoTalk-FSD47A\templates\admin_user" />
       <recent name="\\wsl.localhost\Ubuntu\home\theo\projects\ValoTalk-FSD47A\public\agents" />
     </key>
   </component>
@@ -257,7 +282,8 @@
       <workItem from="1729007622303" duration="45867000" />
       <workItem from="1729148947595" duration="21705000" />
       <workItem from="1729238040469" duration="7377000" />
-      <workItem from="1729443837854" duration="5272000" />
+      <workItem from="1729443837854" duration="5336000" />
+      <workItem from="1729525813311" duration="10322000" />
     </task>
     <servers />
   </component>

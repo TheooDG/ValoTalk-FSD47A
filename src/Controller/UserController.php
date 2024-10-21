@@ -22,7 +22,7 @@ class UserController extends AbstractController
         $articles = $articleRepository->findBy(['createdBy' => $user]);
 
         return $this->render('user/profile.html.twig', [
-            'user'     => $user,
+            'user' => $user,
             'articles' => $articles,
         ]);
     }
@@ -73,53 +73,20 @@ class UserController extends AbstractController
     }
 
 
-
     #[Route('/profile/{id}/delete', name: 'user_delete_profile')]
-    public function deleteProfile(EntityManagerInterface $entityManager, User $user): Response
+    public function deleteProfile(EntityManagerInterface $entityManager, TokenStorageInterface $tokenStorage, User $user): Response
     {
+        // Déconnecte l'utilisateur
+        $tokenStorage->setToken(null);
+
+        // Supprime l'utilisateur
         $entityManager->remove($user);
         $entityManager->flush();
 
+        // Invalide la session actuelle
+        $this->container->get('session')->invalidate();
+
+        // Redirection vers la page d'accueil
         return $this->redirectToRoute('home');
-    }
-
-    #[Route('/admin/users', name: 'user_list')]
-    public function list(EntityManagerInterface $entityManager): Response
-    {
-        $users = $entityManager->getRepository(User::class)->findAll();
-
-        return $this->render('user/list.html.twig', [
-            'users' => $users,
-        ]);
-    }
-
-    #[Route('/admin/users/create', name: 'user_create')]
-    public function create(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $user = new User();
-        // Crée un formulaire ici pour le nouvel utilisateur et gère la soumission
-
-        return $this->render('user/create.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
-    #[Route('/admin/users/{id}/edit', name: 'user_edit')]
-    public function edit(Request $request, EntityManagerInterface $entityManager, User $user): Response
-    {
-        // Crée un formulaire ici pour modifier l'utilisateur et gère la soumission
-
-        return $this->render('user/edit.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
-    #[Route('/admin/users/{id}/delete', name: 'user_delete')]
-    public function delete(EntityManagerInterface $entityManager, User $user): Response
-    {
-        $entityManager->remove($user);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('user_list');
     }
 }
