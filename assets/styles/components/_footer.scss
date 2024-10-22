@@ -1,10 +1,14 @@
+@use '../variables' as v;
+
 footer {
-  background-color: $footer-bg-color;
+  background-color: v.$footer-bg-color;
   padding: 15px;
   text-align: center;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  position: relative; // Change cette ligne
 
   p {
-    color: $text-color;
+    color: v.$text-color;
     font-size: 0.875rem;
     margin-bottom: 10px;
   }
@@ -16,10 +20,10 @@ footer {
     gap: 15px;
 
     li a {
-      color: $text-color;
+      color: v.$text-color;
       text-decoration: none;
       &:hover {
-        color: $hover-color;
+        color: v.$hover-color;
       }
     }
   }

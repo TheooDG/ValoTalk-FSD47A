@@ -2,49 +2,54 @@
 
 {% block title %}{{ article.title }}{% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
-    {{ encore_entry_script_tags('comment') }}
-{% endblock %}
-
 {% block body %}
-    <h1>{{ article.title }}</h1>
-    <p>{{ article.content }}</p>
+    <article class="article-container">
+        <header>
+            <h1>{{ article.title }}</h1>
+        </header>
 
-    {% if article.agent %}
-        <p>Agent : {{ article.agent.name }}</p>
-    {% else %}
-        <p>Aucun agent associé.</p>
-    {% endif %}
+        <div class="article-content">
+            <p>{{ article.content }}</p>
+        </div>
 
-    <p>Écrit par : {{ article.createdBy.username }}</p>
-    <p>Date de publication : {{ article.createdAt|date('d/m/Y H:i') }}</p>
-
-    {# Bouton Modifier #}
-    {% if is_granted('edit', article) %}
-        <a href="{{ path('article_edit', { id: article.id }) }}" class="btn btn-primary">Modifier</a>
-    {% endif %}
-
-    <h2>Commentaires</h2>
-    <div id="comments-container" data-article-id="{{ article.id }}">
-        {% if article.comments is not empty %}
-            {% for comment in article.comments %}
-                <div class="comment" data-comment-id="{{ comment.id }}">
-                    <p>{{ comment.content }}</p>
-                    <small>Posté par : {{ comment.createdBy.username }} le {{ comment.createdAt|date('Y-m-d H:i') }}</small>
-                    {% if is_granted('delete_comment', comment) %}
-                        <button class="delete-comment" data-comment-id="{{ comment.id }}" aria-label="Supprimer le commentaire">Supprimer</button>
-                    {% endif %}
-                </div>
-            {% endfor %}
+        {% if article.agent %}
+            <p>Agent : <strong>{{ article.agent.name }}</strong></p>
         {% else %}
-            <p>Aucun commentaire n'a encore été publié.</p>
+            <p>Aucun agent associé.</p>
         {% endif %}
-    </div>
 
-    <form id="comment-form" data-article-id="{{ article.id }}" method="post">
-        <textarea id="comment-content" name="content" required placeholder="Écrire un commentaire..."></textarea>
-        <button type="submit">Commenter</button>
-    </form>
+        <footer class="article-footer">
+            <p>Publié par <strong>{{ article.createdBy.username }}</strong>, le {{ article.createdAt|date('d/m/Y à H:i') }}</p>
+        </footer>
+    </article>
 
+    <hr class="article-divider" />
+
+    <section class="comments-section">
+        <h2>Commentaires</h2>
+
+        <div id="comments-container" data-article-id="{{ article.id }}">
+            {% if article.comments is not empty %}
+                {% for comment in article.comments %}
+                    <div class="comment">
+                        <p>{{ comment.content }}</p>
+                        <small>Posté par <strong>{{ comment.createdBy.username }}</strong>, le {{ comment.createdAt|date('d/m/Y à H:i') }}</small>
+                        {% if is_granted('delete_comment', comment) %}
+                            <button class="delete-comment" data-comment-id="{{ comment.id }}" aria-label="Supprimer le commentaire">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        {% endif %}
+
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Aucun commentaire n'a encore été publié.</p>
+            {% endif %}
+        </div>
+
+        <form id="comment-form" data-article-id="{{ article.id }}" method="post">
+            <textarea id="comment-content" name="content" required placeholder="Écrire un commentaire..."></textarea>
+            <button type="submit">Commenter</button>
+        </form>
+    </section>
 {% endblock %}

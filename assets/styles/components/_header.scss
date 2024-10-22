@@ -1,46 +1,91 @@
-.admin-nav {
-  background-color: $bg-color-nav;
-  padding: 5px 20px;
+@use '../variables' as v;
 
-  ul {
+.header-nav {
+  background-color: v.$bg-color-nav;
+  padding: 20px;
+  margin: 0;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  h1 {
+    color: #FFFBF5;
+    font-size: 24px;
+    margin: 0;
+
+    a {
+      color: #FFFBF5;
+      text-decoration: none;
+      font-weight: bold;
+      &:hover {
+        color: v.$hover-color;
+      }
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+
+    i {
+      font-size: 24px;
+      color: #FFFBF5;
+    }
+  }
+
+  .nav-links {
+    display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: flex-end;
+    gap: 20px;
 
     li {
-      margin-left: 15px;
       a {
-        color: $text-color;
+        color: v.$text-color;
         text-decoration: none;
+        font-weight: bold;
         &:hover {
-          color: $hover-color;
+          color: v.$hover-color;
         }
       }
     }
   }
 }
 
-.main-nav {
-  background-color: $bg-color-nav;
-  padding: 10px 20px;
+@media screen and (max-width: 768px) {
+  .header-nav {
+    .menu-toggle {
+      display: block !important;
+    }
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
+    .nav-links {
+      display: none !important; /* Force le masquage sur mobile */
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
 
-    li {
-      a {
-        color: $text-color;
-        text-decoration: none;
-        &:hover {
-          color: $hover-color;
+      li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
       }
+    }
+
+    .nav-links.active {
+      display: flex !important; /* Force l'affichage quand actif */
     }
   }
 }
