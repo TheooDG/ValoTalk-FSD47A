@@ -163,7 +163,6 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     public function removeArticle(Article $article): static
     {
         if ($this->articles->removeElement($article)) {
-
             if ($article->getCreatedBy() === $this) {
                 $article->setCreatedBy(null);
             }
@@ -193,7 +192,6 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     public function removeComment(Comment $comment): static
     {
         if ($this->comments->removeElement($comment)) {
-
             if ($comment->getCreatedBy() === $this) {
                 $comment->setCreatedBy(null);
             }

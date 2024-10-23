@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbd9e511-a11e-4d1f-abaf-e968eaffb938" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/menu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/styles/_navigation.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ValoTalk-FSD47A.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ValoTalk-FSD47A.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/components/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/components/_footer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/components/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/components/_header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/pages/article.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/pages/article.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/pages/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/pages/home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/article/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminArticleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminDashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminDashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ArticleForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ArticleForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ChangePasswordForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ChangePasswordForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ProfileEditForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProfileEditForm.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +269,7 @@
       <workItem from="1729238040469" duration="7377000" />
       <workItem from="1729443837854" duration="5336000" />
       <workItem from="1729525813311" duration="10400000" />
-      <workItem from="1729612818242" duration="21239000" />
+      <workItem from="1729612818242" duration="21640000" />
     </task>
     <servers />
   </component>

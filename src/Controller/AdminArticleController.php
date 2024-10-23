@@ -7,7 +7,6 @@ use App\Form\ArticleForm;
 use App\Form\EditArticleForm;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,15 +17,17 @@ class AdminArticleController extends AbstractController
     public function create(Request $request, EntityManagerInterface $entityManager): Response
     {
         $article = new Article();
-        $form = $this->createForm(ArticleForm::class, $article);
+        $form    = $this->createForm(ArticleForm::class, $article);
 
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $article->setCreatedBy($this->getUser());
             $entityManager->persist($article);
             $entityManager->flush();
 
             $this->addFlash('success', 'Article créé avec succès.');
+
             return $this->redirectToRoute('admin_dashboard');
         }
 
@@ -41,10 +42,12 @@ class AdminArticleController extends AbstractController
         $form = $this->createForm(EditArticleForm::class, $article);
 
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
             $this->addFlash('success', 'Article modifié avec succès.');
+
             return $this->redirectToRoute('admin_dashboard');
         }
 

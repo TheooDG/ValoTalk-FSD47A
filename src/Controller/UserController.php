@@ -3,9 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Repository\ArticleRepository;
-use App\Form\ProfileEditForm;
 use App\Form\ChangePasswordForm;
+use App\Form\ProfileEditForm;
+use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +22,7 @@ class UserController extends AbstractController
         $articles = $articleRepository->findBy(['createdBy' => $user]);
 
         return $this->render('user/profile.html.twig', [
-            'user' => $user,
+            'user'     => $user,
             'articles' => $articles,
         ]);
     }
@@ -52,11 +52,12 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $currentPassword = $form->get('currentPassword')->getData();
-            $newPassword = $form->get('plainPassword')->getData();
+            $newPassword     = $form->get('plainPassword')->getData();
 
             // Vérifie si le mot de passe actuel est correct
             if (!$passwordHasher->isPasswordValid($user, $currentPassword)) {
                 $this->addFlash('error', 'Le mot de passe actuel est incorrect.');
+
                 return $this->redirectToRoute('user_change_password', ['id' => $user->getId()]);
             }
 
@@ -71,7 +72,6 @@ class UserController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
 
     #[Route('/profile/{id}/delete', name: 'user_delete_profile')]
     public function deleteProfile(EntityManagerInterface $entityManager, TokenStorageInterface $tokenStorage, User $user): Response

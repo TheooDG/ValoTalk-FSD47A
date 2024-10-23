@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\RegistrationForm;
 use App\Form\ProfileEditForm;
+use App\Form\RegistrationForm;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -60,7 +60,6 @@ class AdminUserController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
 
     #[Route('/admin/users/{id}/delete', name: 'admin_user_delete')]
     public function delete(EntityManagerInterface $entityManager, User $user): Response

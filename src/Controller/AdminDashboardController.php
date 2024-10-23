@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 use App\Entity\Article;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,7 +20,7 @@ class AdminDashboardController extends AbstractController
         $articles = $entityManager->getRepository(Article::class)->findAll();
 
         return $this->render('admin_dashboard/dashboard.html.twig', [
-            'users' => $users,
+            'users'    => $users,
             'articles' => $articles,
         ]);
     }
