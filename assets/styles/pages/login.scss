@@ -1,0 +1,94 @@
+@use '../variables' as v;
+@use 'sass:color';
+
+.login-page {
+  section {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: v.$spacing-md;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    h1 {
+      text-align: center;
+      margin-bottom: v.$spacing-lg;
+      font-size: v.$font-size-lg;
+    }
+
+    .alert {
+      background-color: #e74c3c;
+      color: white;
+      padding: v.$spacing-sm;
+      border-radius: 4px;
+      margin-bottom: v.$spacing-md;
+      text-align: center;
+    }
+
+    form {
+      .form-group {
+        margin-bottom: v.$spacing-md;
+
+        label {
+          display: block;
+          margin-bottom: v.$spacing-xs;
+          font-size: v.$font-size-base;
+          font-weight: bold;
+        }
+
+        input {
+          width: 100%;
+          padding: v.$spacing-xs;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          border-radius: 4px;
+          font-size: v.$font-size-base;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          transition: box-shadow 0.3s, border-color 0.3s;
+
+          &:focus {
+            outline: none;
+            border-color: v.$bg-color-nav;
+            box-shadow: 0 0 5px rgba(v.$bg-color-nav, 0.5);
+          }
+        }
+      }
+
+      button {
+        width: 100%;
+        padding: v.$spacing-sm;
+        background-color: v.$bg-color-btn;
+        color: v.$text-color;
+        border: none;
+        border-radius: 4px;
+        font-size: v.$font-size-base;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, box-shadow 0.3s;
+
+        &:hover {
+          background-color: color.mix(black, v.$hover-color, 10%);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 5px rgba(v.$bg-color-btn, 0.5);
+        }
+      }
+    }
+
+    p {
+      text-align: center;
+      margin-top: v.$spacing-md;
+
+      a {
+        color: v.$bg-color-nav;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

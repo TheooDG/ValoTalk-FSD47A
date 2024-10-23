@@ -27,7 +27,7 @@
                     {% for article in userArticles %}
                         <article class="article-card">
                             <h3>{{ article.title }}</h3>
-                            <p>Par <strong>{{ article.createdBy.username }}</strong>, le <strong>{{ article.createdAt|date('d/m/Y') }}</p>
+                            <p>Par <strong>{{ article.createdBy.username }}</strong>, le {{ article.createdAt|date('d/m/Y') }}</p>
                             <a href="{{ path('article_show', {id: article.id}) }}">Lire la suite</a>
                         </article>
                     {% else %}

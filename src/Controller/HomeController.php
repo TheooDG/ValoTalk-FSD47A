@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'home')]
+    #[Route('/', name: 'home')]
     public function home(ArticleRepository $articleRepository, Security $security): Response
     {
         // Récupère les 5 derniers articles publiés

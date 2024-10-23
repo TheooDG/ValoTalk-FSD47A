@@ -5,35 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbd9e511-a11e-4d1f-abaf-e968eaffb938" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40/storage_v2/_src_/database/valotalk.Guukqw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40/storage_v2/_src_/database/valotalk.Guukqw/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40/storage_v2/_src_/database/valotalk.Guukqw/schema/public.abK9xQ.zip" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/pages/new_article.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/pages/registration.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20241015171737.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20241016065735.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20241016085549.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20241016114723.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20241016122114.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20241016130228.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20241016140025.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20241016140406.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20241016175617.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20241017134622.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20241017135615.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20241018141721.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/pages/login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/pages/login.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/entrypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/entrypoints.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/runtime.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/runtime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/vendors-node_modules_core-js_modules_es_array_concat_js-node_modules_core-js_modules_es_date_-7a7281.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/vendors-node_modules_core-js_modules_es_array_concat_js-node_modules_core-js_modules_es_date_-7a7281.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

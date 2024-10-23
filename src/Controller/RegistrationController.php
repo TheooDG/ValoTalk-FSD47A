@@ -54,7 +54,7 @@ class RegistrationController extends AbstractController
             if ($data->getBirthdate() >= new \DateTime()) {
                 $this->addFlash('error', 'La date de naissance doit être dans le passé.');
 
-                return $this->render('registration/dashboard.html.twig', [
+                return $this->render('registration/index.html.twig', [
                     'registrationForm' => $form->createView(),
                 ]);
             }
@@ -74,7 +74,7 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('login');
         }
 
-        return $this->render('registration/dashboard.html.twig', [
+        return $this->render('registration/index.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }

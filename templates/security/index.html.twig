@@ -3,27 +3,29 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-    <section>
-        <h1>Se connecter</h1>
+    <div class="login-page">
+        <section>
+            <h1>Se connecter</h1>
 
-        {% if error %}
-            <div class="alert alert-danger">Identifiants incorrects</div>
-        {% endif %}
+            {% if error %}
+                <div class="alert alert-danger">Identifiants incorrects</div>
+            {% endif %}
 
-        <form action="{{ path('login') }}" method="post">
-            <div class="form-group">
-                <label for="inputEmail">Email *</label>
-                <input type="email" name="email" id="inputEmail" class="form-control" value="{{ lastUsername }}" required autofocus>
-            </div>
+            <form action="{{ path('login') }}" method="post" class="login-form">
+                <div class="form-group">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" name="email" id="inputEmail" class="form-control" value="{{ lastUsername }}" required autofocus>
+                </div>
 
-            <div class="form-group">
-                <label for="inputPassword">Mot de passe *</label>
-                <input type="password" name="password" id="inputPassword" class="form-control" required>
-            </div>
+                <div class="form-group">
+                    <label for="inputPassword">Mot de passe</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" required>
+                </div>
 
-            <button type="submit" class="btn btn-primary">Se connecter</button>
-        </form>
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+            </form>
 
-        <p>Pas de compte ? <a href="{{ path('registration') }}">Inscrivez-vous ici</a></p>
-    </section>
+            <p>Pas de compte ? <a href="{{ path('registration') }}">Inscrivez-vous ici</a></p>
+        </section>
+    </div>
 {% endblock %}

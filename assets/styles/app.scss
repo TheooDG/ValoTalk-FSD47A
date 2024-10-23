@@ -9,6 +9,10 @@
 @use 'pages/home';
 @use 'pages/article';
 @use 'pages/profile';
+@use 'pages/login';
+@use 'pages/registration';
+@use 'pages/new_article';
+
 
 // Reset et styles de base
 * {
