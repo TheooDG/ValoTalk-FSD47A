@@ -1,0 +1,91 @@
+@use '../variables' as v;
+
+h1 {
+  text-align: center;
+  margin-bottom: v.$spacing-lg;
+}
+
+.articles-container {
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-lg;
+
+  @media (min-width: v.$breakpoint-tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  section.user-articles {
+    margin-top:  0;
+  }
+
+  section {
+    flex: 1;
+    padding: v.$spacing-md;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      font-size: v.$font-size-lg;
+      margin-bottom: v.$spacing-sm;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: v.$spacing-xs;
+    }
+
+    .article-card {
+      margin-bottom: v.$spacing-md;
+      padding-bottom: v.$spacing-md;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+      h3 {
+        font-weight: bold;
+        font-size: v.$font-size-base;
+      }
+
+      p {
+        font-size: 0.875rem;
+        margin: 0.5rem 0;
+      }
+
+      a {
+        display: inline-block;
+        margin-top: v.$spacing-xs;
+        color: v.$bg-color-nav;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:visited {
+          color: v.$bg-color-nav;
+        }
+
+        &:focus, &:active {
+          color: v.$bg-color-nav;
+        }
+      }
+    }
+
+    .articles-list {
+      a {
+        color: v.$bg-color-nav;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:visited {
+          color: v.$bg-color-nav;
+        }
+
+        &:focus, &:active {
+          color: v.$bg-color-nav;
+        }
+      }
+    }
+  }
+}
+

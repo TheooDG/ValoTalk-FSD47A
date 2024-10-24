@@ -1,0 +1,8 @@
+{
+  "build/app.css": "/build/app.css",
+  "build/app.js": "/build/app.js",
+  "build/comment.js": "/build/comment.js",
+  "build/menu.js": "/build/menu.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors-node_modules_core-js_modules_es_array_concat_js-node_modules_core-js_modules_es_date_-7a7281.js": "/build/vendors-node_modules_core-js_modules_es_array_concat_js-node_modules_core-js_modules_es_date_-7a7281.js"
+}

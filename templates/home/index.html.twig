@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Bienvenue sur ValoTalk !</h1>
+
+    <div class="articles-container">
+        <section class="all-articles">
+            <h2>Derniers articles publiés</h2>
+            <div class="articles-list">
+                {% for article in latestArticles %}
+                    <article class="article-card">
+                        <h3>{{ article.title }}</h3>
+                        <p>Par <strong>{{ article.createdBy.username }}</strong>, le {{ article.createdAt|date('d/m/Y') }}</p>
+                        <a href="{{ path('article_show', {id: article.id}) }}">Lire la suite</a>
+                    </article>
+                {% else %}
+                    <p>Aucun article récent trouvé.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        {% if app.user %}
+            <section class="user-articles">
+                <h2>Mes derniers articles</h2>
+                <div class="articles-list">
+                    {% for article in userArticles %}
+                        <article class="article-card">
+                            <h3>{{ article.title }}</h3>
+                            <p>Par <strong>{{ article.createdBy.username }}</strong>, le {{ article.createdAt|date('d/m/Y') }}</p>
+                            <a href="{{ path('article_show', {id: article.id}) }}">Lire la suite</a>
+                        </article>
+                    {% else %}
+                        <p>Vous n'avez pas encore publié d'articles ! Pourquoi ne pas en écrire un <a href="{{ path('article_new') }}">dès maintenant</a> ?</p>
+                    {% endfor %}
+                </div>
+            </section>
+        {% else %}
+            <p>Connectez-vous pour voir vos articles publiés.</p>
+        {% endif %}
+    </div>
+{% endblock %}

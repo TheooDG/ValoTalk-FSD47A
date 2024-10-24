@@ -1,0 +1,97 @@
+@use '../variables' as v;
+@use 'sass:color';
+
+.profile-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: v.$spacing-lg;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    text-align: center;
+    font-size: v.$font-size-xl;
+    margin-bottom: v.$spacing-lg;
+    color: v.$text-color;
+  }
+
+  .profile-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: v.$spacing-md;
+    margin-bottom: v.$spacing-lg;
+
+    a {
+      padding: v.$spacing-sm v.$spacing-md;
+      background-color: v.$bg-color-btn;
+      border-radius: 4px;
+      text-decoration: none;
+      color: v.$text-color;
+      font-weight: bold;
+      transition: background-color 0.3s, box-shadow 0.3s;
+
+      &:hover {
+        background-color: color.scale(v.$bg-color-btn, $lightness: -15%); // Plus rouge mais pas trop
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba(251, 79, 93, 0.5);
+      }
+
+      &.btn-delete:hover {
+        background-color: color.scale(v.$bg-color-btn, $lightness: -20%); // Assure un hover plus "rouge"
+      }
+    }
+  }
+
+  .user-info {
+    font-size: v.$font-size-base;
+    color: v.$text-color;
+    margin-bottom: v.$spacing-lg;
+
+    .user-birthdate {
+      font-style: italic;
+      color: color.scale(v.$text-color, $lightness: -20%);
+      margin-bottom: v.$spacing-md; // Espacement ajouté
+    }
+  }
+}
+
+.user-articles {
+  margin-top: v.$spacing-lg;
+  list-style: none;
+  padding: 0;
+
+  li {
+    background-color: #ffffff;
+    padding: v.$spacing-md;
+    margin-bottom: v.$spacing-md;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    a {
+      font-weight: bold;
+      color: v.$text-color;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: v.$bg-color-nav;
+      }
+    }
+  }
+
+  .no-articles {
+    color: v.$text-color;
+    font-size: v.$font-size-sm;
+    text-align: center;
+  }
+}

@@ -1,0 +1,32 @@
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+// Colors
+$bg-color-btn: #FFFBF5;
+$bg-color: #FFFBF5;
+$bg-color-nav: #FB4F5D;
+$footer-bg-color: #FB4F5D;
+$text-color: #132126;
+$hover-color: #FFFBF5;
+$error-color: #FB4F5D;
+$border-color: #555555;
+
+// Spacing
+$spacing-xs: 0.25rem;  // 4px
+$spacing-sm: 0.5rem;   // 8px
+$spacing-md: 1rem;     // 16px
+$spacing-lg: 1.5rem;   // 24px
+$spacing-xl: 2rem;     // 32px
+
+// Z-index
+$z-nav: 1000;
+$z-nav-toggle: 1001;
+
+// Typography
+$font-family-base: 'Inter', sans-serif;
+$font-size-base: 1rem;
+$font-size-sm: 0.75rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;

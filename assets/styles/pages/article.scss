@@ -1,0 +1,154 @@
+@use '../variables' as v;
+
+.article-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: v.$spacing-md;
+  margin-bottom: v.$spacing-lg;
+
+  h1 {
+    text-align: center;
+    font-size: v.$font-size-lg;
+    margin-bottom: v.$spacing-sm;
+  }
+
+  .article-content {
+    font-size: v.$font-size-base;
+    line-height: 1.5;
+    margin-bottom: v.$spacing-lg;
+  }
+
+  .article-footer {
+    text-align: right;
+    font-size: v.$font-size-sm;
+    margin-top: v.$spacing-md;
+    background-color: transparent;
+    padding: v.$spacing-xs;
+    border-radius: 4px;
+    box-shadow: none;
+
+    p {
+      margin-bottom: 0.5rem;
+      font-size: v.$font-size-sm;
+
+      strong {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.article-divider {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: v.$spacing-lg 0;
+}
+
+.comments-section {
+  h2 {
+    font-size: v.$font-size-lg;
+    margin-bottom: v.$spacing-md;
+  }
+
+  #comment-form {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: v.$spacing-md;
+    margin-bottom: v.$spacing-lg;
+
+    textarea {
+      width: 100%;
+      padding: v.$spacing-xs;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      margin-bottom: v.$spacing-sm;
+      font-size: v.$font-size-base;
+    }
+
+    button {
+      background-color: v.$bg-color-btn;
+      color: v.$text-color;
+      padding: v.$spacing-xs v.$spacing-sm;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, box-shadow 0.3s;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      &:active {
+        background-color: rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(v.$text-color, 0.5);
+      }
+    }
+  }
+
+  .comment {
+    padding: v.$spacing-sm 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: v.$spacing-md;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    p {
+      margin-bottom: v.$spacing-xs;
+    }
+
+    small {
+      display: block;
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.delete-comment {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  box-shadow: none;
+  transition: color 0.3s, transform 0.3s;
+
+  &:hover {
+    color: rgba(231, 76, 60, 0.85);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    color: rgba(231, 76, 60, 0.7);
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.5);
+  }
+}
+
+@media (min-width: v.$breakpoint-tablet) {
+  .article-container {
+    padding: v.$spacing-lg;
+  }
+
+  .comments-section {
+    #comment-form {
+      padding: v.$spacing-lg;
+    }
+  }
+}

@@ -56,7 +56,6 @@ cc:
 bash:
 	$(PHP_CONTAINER) bash
 
-
 #----> DATABASE UTILS
 .PHONY:dbstart
 ## start the database

@@ -1,0 +1,78 @@
+@use 'variables' as v;
+@use 'navigation';
+@use 'mixins';
+@use 'base';
+@use 'layout';
+@use 'components/header';
+@use 'components/footer';
+@use 'components/buttons';
+@use 'pages/home';
+@use 'pages/article';
+@use 'pages/article_list';
+@use 'pages/new_article';
+@use 'pages/profile';
+@use 'pages/edit_profile';
+@use 'pages/change_password';
+@use 'pages/login';
+@use 'pages/registration';
+
+
+
+// Reset et styles de base
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: v.$bg-color;
+}
+
+.container {
+  flex: 1;
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+
+  @media (min-width: v.$breakpoint-tablet) {
+    max-width: 720px;
+  }
+
+  @media (min-width: v.$breakpoint-desktop) {
+    max-width: 1140px;
+  }
+}
+
+// Classes d'utilitaires responsive
+.hide-mobile {
+  @media (max-width: v.$breakpoint-tablet - 1px) {
+    display: none !important;
+  }
+}
+
+.hide-desktop {
+  @media (min-width: v.$breakpoint-tablet) {
+    display: none !important;
+  }
+}
+
+// Grille responsive simple
+.grid {
+  display: grid;
+  gap: 1rem;
+
+  @media (min-width: v.$breakpoint-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: v.$breakpoint-desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,17 +1,54 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ValoTalk{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+{{ encore_entry_link_tags('app') }}
+</head>
+<body>
+
+<nav class="header-nav">
+    <h1><a href="{{ path('home') }}">ValoTalk</a></h1>
+    <button class="menu-toggle" aria-label="Ouvrir le menu">
+        <i class="fa-solid fa-bars"></i> <!-- Icône hamburger -->
+    </button>
+    <ul class="nav-links">
+        <li><a href="{{ path('home') }}">Accueil</a></li>
+        <li><a href="{{ path('article_list.scss') }}">Articles</a></li>
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <li><a href="{{ path('admin_dashboard') }}">Dashboard admin</a></li>
+        {% endif %}
+
+        {% if app.user %}
+            <li><a href="{{ path('article_new') }}">Rédiger un article</a></li>
+            <li><a href="{{ path('user_profile', { id: app.user.id }) }}">Mon profil</a></li>
+            <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+        {% else %}
+            <li><a href="{{ path('registration') }}">S'inscrire</a></li>
+            <li><a href="{{ path('login') }}">Se connecter</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+<div class="container">
+    {% block body %}{% endblock %}
+</div>
+
+<footer>
+    <p>Théo DIGONNET © 2024 ValoTalk. Tous droits réservés.</p>
+    <nav>
+        <ul>
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</footer>
+
+{{ encore_entry_script_tags('app') }}
+</body>
 </html>

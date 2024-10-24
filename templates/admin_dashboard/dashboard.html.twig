@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dashboard Admin</h1>
+
+    <h2>Liste des Utilisateurs</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom d'utilisateur</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <a href="{{ path('admin_user_edit', { id: user.id }) }}">Modifier</a>
+                    <a href="{{ path('admin_user_delete', { id: user.id }) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_user_create') }}" class="btn btn-primary">Créer un nouvel utilisateur</a>
+
+    <h2>Liste des Articles</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Date de création</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.createdBy.username }}</td>
+                <td>{{ article.createdAt|date('d/m/Y') }}</td>
+                <td>
+                    <a href="{{ path('admin_article_edit', { id: article.id }) }}">Modifier</a>
+                    <form method="post" action="{{ path('admin_article_delete', { id: article.id }) }}" style="display:inline;" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
+                        <button class="btn btn-danger" type="submit">Supprimer</button>
+                    </form>
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_article_create') }}" class="btn btn-primary">Créer un nouvel article</a>
+{% endblock %}

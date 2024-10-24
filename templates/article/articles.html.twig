@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les articles{% endblock %}
+
+{% block body %}
+    <div class="articles-list-page">
+        <h1>Liste de tous les articles</h1>
+
+        <div class="articles-container">
+            {% for article in articles %}
+                <div class="article-card">
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.content|slice(0, 100) }}...</p>
+                    <a href="{{ path('article_show', {id: article.id}) }}" class="read-more">Lire la suite</a>
+                </div>
+            {% else %}
+                <p>Aucun article trouvé.</p>
+            {% endfor %}
+        </div>
+
+        {% for message in app.session.flashBag.get('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'article: {{ article.title }}{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'article</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">Mettre à jour</button>
+    {{ form_end(form) }}
+
+    <form action="{{ path('article_delete', {'id': article.id}) }}" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
+        <button class="btn btn-danger">Supprimer</button>
+    </form>
+
+    <a href="{{ path('article_show', {'id': article.id}) }}">Retour à l'article</a>
+{% endblock %}
