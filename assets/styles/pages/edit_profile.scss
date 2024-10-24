@@ -1,0 +1,57 @@
+@use '../variables' as v;
+@use 'sass:color';
+
+.profile-edit-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: v.$spacing-lg;
+
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    text-align: center;
+    font-size: v.$font-size-xl;
+    margin-bottom: v.$spacing-lg;
+    color: v.$text-color;
+  }
+
+  .form-group {
+    margin-bottom: v.$spacing-lg;
+
+    label {
+      font-weight: bold;
+      color: v.$text-color;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: v.$spacing-sm;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: v.$bg-color-nav;
+        outline: none;
+      }
+    }
+
+    .error {
+      color: v.$error-color;
+      font-size: v.$font-size-sm;
+    }
+  }
+
+  a {
+    display: inline-block;
+    margin-top: v.$spacing-lg;
+    color: v.$bg-color-nav;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

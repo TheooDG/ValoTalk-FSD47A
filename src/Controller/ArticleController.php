@@ -56,7 +56,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/articles', name: 'article_list')]
+    #[Route('/articles', name: 'article_list.scss')]
     public function index(ArticleRepository $articleRepository): Response
     {
         $articles = $articleRepository->findAll();
