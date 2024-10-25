@@ -52,7 +52,7 @@
                     <button type="submit" class="btn">Créer un compte</button>
                 </fieldset>
 
-                {{ form_end(registrationForm, {'render_rest': false}) }}
+                {{ form_end(registrationForm) }}
 
                 {% for message in app.flashes('error') %}
                     <div class="alert alert-danger">{{ message }}</div>

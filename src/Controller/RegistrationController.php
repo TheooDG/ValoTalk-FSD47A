@@ -26,6 +26,7 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            dump('Form submitted');
             $data = $form->getData();
 
             // Vérification si le nom d'utilisateur est déjà utilisé
