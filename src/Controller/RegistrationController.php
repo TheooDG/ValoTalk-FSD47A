@@ -26,6 +26,7 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            dump('Form submitted');
             $data = $form->getData();
 
             // Vérification si le nom d'utilisateur est déjà utilisé
@@ -34,7 +35,7 @@ class RegistrationController extends AbstractController
             if ($existingUserByUsername) {
                 $this->addFlash('error', 'Ce nom d\'utilisateur est déjà utilisé.');
 
-                return $this->render('registration/new.html.twig', [
+                return $this->render('registration/index.html.twig', [
                     'registrationForm' => $form->createView(),
                 ]);
             }
@@ -45,7 +46,7 @@ class RegistrationController extends AbstractController
             if ($existingUser) {
                 $this->addFlash('error', 'Cet email est déjà utilisé.');
 
-                return $this->render('registration/new.html.twig', [
+                return $this->render('registration/index.html.twig', [
                     'registrationForm' => $form->createView(),
                 ]);
             }
@@ -54,7 +55,7 @@ class RegistrationController extends AbstractController
             if ($data->getBirthdate() >= new \DateTime()) {
                 $this->addFlash('error', 'La date de naissance doit être dans le passé.');
 
-                return $this->render('registration/dashboard.html.twig', [
+                return $this->render('registration/index.html.twig', [
                     'registrationForm' => $form->createView(),
                 ]);
             }
@@ -74,7 +75,7 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('login');
         }
 
-        return $this->render('registration/dashboard.html.twig', [
+        return $this->render('registration/index.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }

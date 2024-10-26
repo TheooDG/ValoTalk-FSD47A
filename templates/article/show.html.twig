@@ -20,6 +20,17 @@
 
         <footer class="article-footer">
             <p>Publié par <strong>{{ article.createdBy.username }}</strong>, le {{ article.createdAt|date('d/m/Y à H:i') }}</p>
+
+            {% if is_granted('edit', article) %}
+                <a href="{{ path('article_edit', { id: article.id }) }}" class="btn btn-primary">Modifier l'article</a>
+            {% endif %}
+
+            {% if is_granted('delete', article) %}
+                <form action="{{ path('article_delete', { id: article.id }) }}" method="POST" style="display: inline;">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
+                    <button type="submit" class="btn btn-danger">Supprimer l'article</button>
+                </form>
+            {% endif %}
         </footer>
     </article>
 

@@ -51,15 +51,9 @@ class RegistrationForm extends AbstractType
                     new NotBlank([
                         'message' => 'Le mot de passe ne peut pas être vide.',
                     ]),
-                    new Length([
-                        'min'        => 6,
-                        'minMessage' => 'Le mot de passe doit comporter au moins {{ limit }} caractères.',
-                        'max'        => 4096,
-                        'maxMessage' => 'Votre mot de passe ne peut pas dépasser {{ limit }} caractères.',
-                    ]),
                     new Regex([
-                        'pattern' => '/^(?=.*[0-9])(?=.*[\W_]).{6,4096}$/',
-                        'message' => 'Le mot de passe doit comporter au moins 6 caractères, inclure au moins un chiffre et un caractère spécial.',
+                        'pattern' => '/^(?=.*[0-9])(?=.*[\W_]).{12,4096}$/',
+                        'message' => 'Le mot de passe doit comporter au moins 12 caractères, inclure au moins un chiffre et un caractère spécial.',
                     ]),
                 ],
                 'label' => 'Mot de passe',
@@ -82,10 +76,6 @@ class RegistrationForm extends AbstractType
                     ]),
                 ],
                 'label' => 'Date de naissance',
-            ])
-
-            ->add('submit', SubmitType::class, [
-                'label' => 'Créer un compte',
             ]);
     }
 
@@ -93,6 +83,9 @@ class RegistrationForm extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'csrf_protection' => true,
+            'csrf_field_name' => '_token',
+            'csrf_token_id'   => 'registration_form',
         ]);
     }
 }

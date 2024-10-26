@@ -3,20 +3,23 @@
 {% block title %}Tous les articles{% endblock %}
 
 {% block body %}
-    <h1>Liste des articles</h1>
-    <ul>
-        {% for article in articles %}
-            <li>
-                <h2>{{ article.title }}</h2>
-                <p>{{ article.content|slice(0, 100) }}...</p>
-                <a href="{{ path('article_show', {id: article.id}) }}">Lire la suite</a>
-            </li>
-        {% else %}
-            <li>Aucun article trouvé.</li>
-        {% endfor %}
-    </ul>
+    <div class="articles-list-page">
+        <h1>Liste de tous les articles</h1>
 
-    {% for message in app.session.flashBag.get('success') %}
-        <div class="alert alert-success">{{ message }}</div>
-    {% endfor %}
+        <div class="articles-container">
+            {% for article in articles %}
+                <div class="article-card">
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.content|slice(0, 100) }}...</p>
+                    <a href="{{ path('article_show', {id: article.id}) }}" class="read-more">Lire la suite</a>
+                </div>
+            {% else %}
+                <p>Aucun article trouvé.</p>
+            {% endfor %}
+        </div>
+
+        {% for message in app.session.flashBag.get('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+    </div>
 {% endblock %}

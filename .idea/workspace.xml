@@ -5,15 +5,82 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbd9e511-a11e-4d1f-abaf-e968eaffb938" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ValoTalk-FSD47A.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ValoTalk-FSD47A.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40/storage_v2/_src_/database/valotalk.Guukqw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40/storage_v2/_src_/database/valotalk.Guukqw/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7efb55d8-100e-498f-9cd8-9c6bb3db3d40/storage_v2/_src_/database/valotalk.Guukqw/schema/public.abK9xQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/_navigation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_navigation.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/base.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/components/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/components/_buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/components/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/components/_footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/components/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/components/_header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/layout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/pages/article.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/pages/article.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/pages/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/pages/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/pages/profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/pages/profile.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/php/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20241015171737.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20241016065735.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20241016085549.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20241016114723.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20241016122114.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20241016130228.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20241016140025.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20241016140406.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20241016175617.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20241017134622.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20241017135615.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20241018141721.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/agents/brimstone_image.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/agents/brimstone_image.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdminArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminArticleController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdminDashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminDashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdminUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArticleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AdminFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AdminFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AgentFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AgentFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/ArticleForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ArticleForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/ChangePasswordForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ChangePasswordForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/EditArticleForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EditArticleForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/ProfileEditForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProfileEditForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/AccessDeniedHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/AccessDeniedHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/ArticleVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/ArticleVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/CommentVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/CommentVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin_article/create.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_article/create.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin_article/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_article/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin_article/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_article/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin_dashboard/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_dashboard/dashboard.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin_user/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_user/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article/articles.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article/articles.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/change_password.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/change_password.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/edit_profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/edit_profile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/profile.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +105,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe">
     <include_path>
@@ -216,7 +288,9 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;create-account&quot;,
     &quot;last_opened_file_path&quot;: &quot;//wsl.localhost/Ubuntu/home/theo/projects/ValoTalk-FSD47A/templates/admin_article&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -270,6 +344,8 @@
       <workItem from="1729443837854" duration="5336000" />
       <workItem from="1729525813311" duration="10400000" />
       <workItem from="1729612818242" duration="21640000" />
+      <workItem from="1729786704374" duration="17509000" />
+      <workItem from="1729871138817" duration="1032000" />
     </task>
     <servers />
   </component>

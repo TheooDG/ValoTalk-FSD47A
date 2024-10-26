@@ -1,0 +1,117 @@
+@use '../variables' as v;
+@use 'sass:color';
+
+.article-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: v.$spacing-lg;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: v.$spacing-lg;
+  font-size: v.$font-size-xl;
+  color: v.$text-color;
+}
+
+.form-group {
+  margin-bottom: v.$spacing-md;
+
+  label {
+    display: inline-block;
+    margin-bottom: v.$spacing-xs;
+    font-weight: bold;
+    color: v.$text-color;
+    vertical-align: top;
+  }
+
+  span.required {
+    color: red;
+    font-size: 0.8em;
+    display: inline-block;
+    line-height: 1;
+    margin-left: 2px;
+    vertical-align: top;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  textarea {
+    display: block;
+    width: 100%;
+    padding: v.$spacing-sm;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    font-size: v.$font-size-base;
+    color: v.$text-color;
+    background-color: #ffffff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+
+    &:focus {
+      border-color: v.$bg-color-nav;
+      box-shadow: 0 0 5px rgba(251, 79, 93, 0.5);
+      outline: none;
+    }
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  select {
+    display: block;
+    width: 100%;
+    padding: v.$spacing-sm;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    font-size: v.$font-size-base;
+    color: v.$text-color;
+    background-color: #ffffff;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    cursor: pointer;
+
+    &:focus {
+      border-color: v.$bg-color-nav;
+      box-shadow: 0 0 5px rgba(251, 79, 93, 0.5);
+      outline: none;
+    }
+  }
+}
+
+.btn {
+  width: 100%;
+  padding: v.$spacing-sm;
+  background-color: v.$bg-color-btn;
+  color: v.$text-color;
+  border: none;
+  border-radius: 4px;
+  font-size: v.$font-size-base;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+  margin-top: v.$spacing-md;
+  font-weight: bold;
+
+  &:hover {
+    background-color: color.mix(black, v.$hover-color, 10%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(v.$bg-color-btn, 0.5);
+  }
+}
+
+// Masquer le champ CSRF
+input[type="hidden"] {
+  display: none;
+}

@@ -28,7 +28,7 @@ class ChangePasswordForm extends AbstractType
                     new Length(['min' => 8]), // Par exemple, minimum 8 caractères
                 ],
             ])
-            ->add('submit', SubmitType::class, ['label' => 'Changer le mot de passe']);
+            ->add('submit', SubmitType::class, ['label' => 'Modifier le mot de passe']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -8,7 +8,15 @@
 @use 'components/buttons';
 @use 'pages/home';
 @use 'pages/article';
+@use 'pages/article_list';
+@use 'pages/new_article';
 @use 'pages/profile';
+@use 'pages/edit_profile';
+@use 'pages/change_password';
+@use 'pages/login';
+@use 'pages/registration';
+
+
 
 // Reset et styles de base
 * {
