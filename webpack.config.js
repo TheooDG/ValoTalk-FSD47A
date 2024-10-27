@@ -23,6 +23,7 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('comment', './assets/js/comment.js')
     .addEntry('menu', './assets/js/menu.js')
+    .addEntry('cookies', './assets/js/cookies.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()

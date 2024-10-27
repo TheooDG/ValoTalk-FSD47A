@@ -44,7 +44,7 @@
           position: relative;
 
           label {
-            display: inline;
+            display: inline-block;
             margin-bottom: v.$spacing-xs;
             font-size: v.$font-size-base;
             font-weight: bold;
@@ -58,15 +58,8 @@
             margin-left: 2px;
           }
 
-          // Créer un conteneur pour le label et l'étoile
-          label, span.required {
-            display: inline-block;
-            vertical-align: top;
-            margin-bottom: v.$spacing-xs;
-          }
-
           input, select {
-            display: block; // Pour s'assurer qu'il commence sur une nouvelle ligne
+            display: block;
             width: 100%;
             padding: v.$spacing-xs;
             border: 1px solid rgba(0, 0, 0, 0.1);
@@ -91,6 +84,8 @@
 
             ul {
               list-style: none;
+              padding: 0;
+              margin: 0;
             }
           }
         }

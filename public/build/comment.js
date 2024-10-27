@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, ["vendors-node_modules_core-js_modules_es_array_concat_js-node_modules_core-js_modules_es_date_-7a7281"], () => (__webpack_exec__("./assets/js/comment.js")));
+/******/ __webpack_require__.O(0, ["vendors-node_modules_core-js_internals_function-uncurry-this-clause_js-node_modules_core-js_m-a7bf6b","vendors-node_modules_core-js_modules_es_error_cause_js-node_modules_core-js_modules_es_error_-1fc45e"], () => (__webpack_exec__("./assets/js/comment.js")));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
