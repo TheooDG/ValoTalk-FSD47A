@@ -45,7 +45,7 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
     /**
      * @var Collection<int, Article>
      */
-    #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'createdBy')]
+    #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'createdBy', cascade: ['remove'])]
     private Collection $articles;
 
     /**
