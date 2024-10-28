@@ -74,7 +74,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/article/{id}/edit', name: 'article_edit')]
+    #[Route('/article/{id}', name: 'article_edit')]
     public function edit(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
         // Vérifie si l'utilisateur connecté est le propriétaire de l'article
@@ -95,7 +95,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/article/{id}/delete', name: 'article_delete', methods: ['POST'])]
+    #[Route('/article/{id}/delete', name: 'article_delete')]
     public function delete(Request $request, Article $article, EntityManagerInterface $entityManager): RedirectResponse
     {
         // Vérifie si l'utilisateur connecté est le propriétaire de l'article
