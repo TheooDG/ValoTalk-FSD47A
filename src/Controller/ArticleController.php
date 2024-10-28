@@ -74,7 +74,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/article/{id}', name: 'article_edit')]
+    #[Route('/article/{id}/edit', name: 'article_edit')]
     public function edit(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
         // Vérifie si l'utilisateur connecté est le propriétaire de l'article
