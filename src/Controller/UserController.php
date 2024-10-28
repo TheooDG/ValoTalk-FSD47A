@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
 
 class UserController extends AbstractController
 {
@@ -74,11 +75,8 @@ class UserController extends AbstractController
     }
 
     #[Route('/profile/{id}/delete', name: 'user_delete_profile')]
-    public function deleteProfile(EntityManagerInterface $entityManager, TokenStorageInterface $tokenStorage, User $user): Response
+    public function deleteProfile(EntityManagerInterface $entityManager, User $user): Response
     {
-        // Déconnecte l'utilisateur
-        $tokenStorage->setToken(null);
-
         // Supprime l'utilisateur
         $entityManager->remove($user);
         $entityManager->flush();
