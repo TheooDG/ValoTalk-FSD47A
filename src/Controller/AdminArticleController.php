@@ -66,7 +66,7 @@ class AdminArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/articles/{id}/delete', name: 'admin_article_delete', methods: ['POST'])]
+    #[Route('/admin/articles/{id}/delete', name: 'admin_article_delete')]
     public function delete(EntityManagerInterface $entityManager, Request $request, Article $article): Response
     {
         // Vérification du token CSRF
