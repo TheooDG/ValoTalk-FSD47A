@@ -39,6 +39,21 @@
   }
 }
 
+.button-group {
+  display: flex;
+  justify-content: right; /* Centre les boutons */
+  gap: v.$spacing-md; /* Ajoute de l'espace entre les boutons */
+  margin-top: v.$spacing-md; /* Ajoute de l'espace au-dessus des boutons */
+}
+
+.button-group .btn {
+  max-width: 120px; /* Limite la taille des boutons */
+  flex: 1; /* Permet aux boutons de s'étendre à la largeur maximale définie */
+  font-size: v.$font-size-md;
+  background-color: white;
+  text-align: center;
+}
+
 .article-divider {
   border: 1px solid rgba(0, 0, 0, 0.1);
   margin: v.$spacing-lg 0;

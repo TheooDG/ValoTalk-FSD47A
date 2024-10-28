@@ -23,6 +23,19 @@
         </footer>
     </article>
 
+    <div class="button-group">
+        {% if is_granted('edit', article) %}
+            <a href="{{ path('article_edit', { id: article.id }) }}" class="btn btn-primary">Modifier l'article</a>
+        {% endif %}
+
+        {% if is_granted('delete', article) %}
+            <form action="{{ path('article_delete', { id: article.id }) }}" method="POST" style="display: inline;">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');">Supprimer l'article</button>
+            </form>
+        {% endif %}
+    </div>
+
     <hr class="article-divider" />
 
     <section class="comments-section">
@@ -35,7 +48,7 @@
                         <p>{{ comment.content }}</p>
                         <small>Posté par <strong>{{ comment.createdBy.username }}</strong>, le {{ comment.createdAt|date('d/m/Y à H:i') }}</small>
                         {% if is_granted('delete_comment', comment) %}
-                            <button class="delete-comment" data-comment-id="{{ comment.id }}" aria-label="Supprimer le commentaire">
+                            <button class="delete-comment" data-comment-id="{{ comment.id }}" aria-label="Supprimer le commentaire" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');">
                                 <i class="fa-solid fa-trash"></i>
                             </button>
                         {% endif %}

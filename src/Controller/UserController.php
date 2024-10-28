@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -74,17 +75,14 @@ class UserController extends AbstractController
     }
 
     #[Route('/profile/{id}/delete', name: 'user_delete_profile')]
-    public function deleteProfile(EntityManagerInterface $entityManager, TokenStorageInterface $tokenStorage, User $user): Response
+    public function deleteProfile(EntityManagerInterface $entityManager, User $user, SessionInterface $session): Response
     {
-        // Déconnecte l'utilisateur
-        $tokenStorage->setToken(null);
-
         // Supprime l'utilisateur
         $entityManager->remove($user);
         $entityManager->flush();
 
         // Invalide la session actuelle
-        $this->container->get('session')->invalidate();
+        $session->invalidate();
 
         // Redirection vers la page d'accueil
         return $this->redirectToRoute('home');

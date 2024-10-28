@@ -23,7 +23,7 @@
                         {{ form_label(registrationForm.username) }}
                         <span class="required">*</span>
                         {{ form_widget(registrationForm.username) }}
-                        {{ form_errors(registrationForm.username) }}
+                        <div class="form-error">{{ form_errors(registrationForm.username) }}</div>
                     </div>
 
                     <!-- Champ E-mail -->
@@ -31,7 +31,7 @@
                         {{ form_label(registrationForm.email) }}
                         <span class="required">*</span>
                         {{ form_widget(registrationForm.email) }}
-                        {{ form_errors(registrationForm.email) }}
+                        <div class="form-error">{{ form_errors(registrationForm.email) }}</div>
                     </div>
 
                     <!-- Champ Mot de passe -->
@@ -39,14 +39,14 @@
                         {{ form_label(registrationForm.password) }}
                         <span class="required">*</span>
                         {{ form_widget(registrationForm.password) }}
-                        {{ form_errors(registrationForm.password) }}
+                        <div class="form-error">{{ form_errors(registrationForm.password) }}</div>
                     </div>
 
                     <!-- Champ Date de naissance (optionnel) -->
                     <div class="form-group">
                         {{ form_label(registrationForm.birthdate) }}
                         {{ form_widget(registrationForm.birthdate) }}
-                        {{ form_errors(registrationForm.birthdate) }}
+                        <div class="form-error">{{ form_errors(registrationForm.birthdate) }}</div>
                     </div>
 
                     <button type="submit" class="btn">Créer un compte</button>

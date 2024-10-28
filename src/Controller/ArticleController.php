@@ -95,7 +95,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/article/{id}/delete', name: 'article_delete', methods: ['POST'])]
+    #[Route('/article/{id}/delete', name: 'article_delete')]
     public function delete(Request $request, Article $article, EntityManagerInterface $entityManager): RedirectResponse
     {
         // Vérifie si l'utilisateur connecté est le propriétaire de l'article

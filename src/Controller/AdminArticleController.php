@@ -13,6 +13,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminArticleController extends AbstractController
 {
+    #[Route('/admin/articles', name: 'admin_article_list')]
+    public function list(EntityManagerInterface $entityManager): Response
+    {
+        $users = $entityManager->getRepository(ArticleForm::class)->findAll();
+
+        return $this->render('admin_article/list.html.twig', [
+            'users' => $users,
+        ]);
+    }
+
     #[Route('/admin/articles/create', name: 'admin_article_create')]
     public function create(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -56,7 +66,7 @@ class AdminArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/articles/{id}/delete', name: 'admin_article_delete', methods: ['POST'])]
+    #[Route('/admin/articles/{id}/delete', name: 'admin_article_delete')]
     public function delete(EntityManagerInterface $entityManager, Request $request, Article $article): Response
     {
         // Vérification du token CSRF

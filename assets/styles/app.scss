@@ -1,8 +1,6 @@
 @use 'variables' as v;
 @use 'navigation';
 @use 'mixins';
-@use 'base';
-@use 'layout';
 @use 'components/header';
 @use 'components/footer';
 @use 'components/buttons';
@@ -10,12 +8,18 @@
 @use 'pages/article';
 @use 'pages/article_list';
 @use 'pages/new_article';
+@use 'pages/edit_article.scss';
 @use 'pages/profile';
 @use 'pages/edit_profile';
 @use 'pages/change_password';
 @use 'pages/login';
 @use 'pages/registration';
-
+@use 'pages/legal';
+@use 'pages/privacy';
+@use 'components/cookies';
+@use 'pages/admin_dashboard';
+@use 'pages/admin_article_edit';
+@use 'pages/admin_user_edit';
 
 
 // Reset et styles de base

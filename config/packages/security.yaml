@@ -33,7 +33,6 @@ security:
     access_control:
         - { path: ^/admin/users, roles: ROLE_ADMIN }
         - { path: ^/admin/articles, roles: ROLE_ADMIN }
-        - { path: ^/home, roles: PUBLIC_ACCESS }
         - { path: ^/login, roles: PUBLIC_ACCESS }
         - { path: ^/registration, roles: PUBLIC_ACCESS }
         - { path: ^/articles, roles: PUBLIC_ACCESS }

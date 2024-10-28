@@ -1,0 +1,113 @@
+.admin-dashboard {
+  padding: 20px;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center; // Centrer le titre sur mobile
+  }
+
+  .tables-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .table-section {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      overflow-x: auto; // Permet le défilement horizontal si nécessaire
+
+      h2 {
+        margin-bottom: 15px;
+        text-align: center; // Centrer le titre de chaque section
+      }
+
+      .dashboard-table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th, td {
+          padding: 10px;
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+        }
+
+        th {
+          background: #e0e0e0;
+        }
+
+        td {
+          font-size: 0.9rem; // Taille de police légèrement plus petite
+        }
+      }
+
+      .btn-create-user,
+      .btn-create-article,
+      .btn-edit-user,
+      .btn-edit-article,
+      .btn-delete-user,
+      .btn-delete-article {
+        display: inline-block;
+        padding: 10px 15px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        text-decoration: none;
+        transition: background 0.3s;
+
+        &.btn-create-user,
+        &.btn-create-article {
+          background: #007bff; // Couleur de fond
+        }
+
+        &.btn-edit-user,
+        &.btn-edit-article {
+          background: #28a745; // Couleur de fond pour modifier
+        }
+
+        &.btn-delete-user,
+        &.btn-delete-article {
+          background: #dc3545; // Couleur de fond pour supprimer
+        }
+
+        &:hover {
+          filter: brightness(90%);
+        }
+      }
+    }
+  }
+}
+
+// Responsivité
+@media (max-width: 768px) {
+  .tables-container {
+    .table-section {
+      margin-bottom: 20px;
+
+      .dashboard-table {
+        font-size: 14px; // Réduire la taille des polices sur mobile
+
+        th, td {
+          padding: 8px; // Réduire le padding pour les petits écrans
+        }
+      }
+
+      .btn-create-user,
+      .btn-create-article,
+      .btn-edit-user,
+      .btn-edit-article,
+      .btn-delete-user,
+      .btn-delete-article {
+        font-size: 14px; // Réduire la taille des boutons
+        padding: 8px 12px; // Réduire le padding des boutons
+      }
+    }
+  }
+
+  h1 {
+    font-size: 1.5rem; // Réduire la taille du titre sur mobile
+  }
+}

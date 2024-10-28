@@ -6,3 +6,4 @@ import './styles/app.scss';
 // Import des scripts
 import './js/menu.js';
 import './js/comment.js';
+import './js/cookies.js';

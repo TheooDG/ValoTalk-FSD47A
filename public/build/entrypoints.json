@@ -3,7 +3,8 @@
     "app": {
       "js": [
         "/build/runtime.js",
-        "/build/vendors-node_modules_core-js_modules_es_array_concat_js-node_modules_core-js_modules_es_date_-7a7281.js",
+        "/build/vendors-node_modules_core-js_internals_function-uncurry-this-clause_js-node_modules_core-js_m-a7bf6b.js",
+        "/build/vendors-node_modules_core-js_modules_es_array_includes_js-node_modules_core-js_modules_es_err-1cf22d.js",
         "/build/app.js"
       ],
       "css": [
@@ -13,7 +14,8 @@
     "comment": {
       "js": [
         "/build/runtime.js",
-        "/build/vendors-node_modules_core-js_modules_es_array_concat_js-node_modules_core-js_modules_es_date_-7a7281.js",
+        "/build/vendors-node_modules_core-js_internals_function-uncurry-this-clause_js-node_modules_core-js_m-a7bf6b.js",
+        "/build/vendors-node_modules_core-js_modules_es_array_includes_js-node_modules_core-js_modules_es_err-1cf22d.js",
         "/build/comment.js"
       ]
     },
@@ -21,6 +23,13 @@
       "js": [
         "/build/runtime.js",
         "/build/menu.js"
+      ]
+    },
+    "cookies": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_core-js_internals_function-uncurry-this-clause_js-node_modules_core-js_m-a7bf6b.js",
+        "/build/cookies.js"
       ]
     }
   }
