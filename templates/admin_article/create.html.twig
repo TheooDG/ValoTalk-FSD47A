@@ -1,9 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Créer un article</h1>
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit">Publier l'article</button>
-    {{ form_end(form) }}
+    <main>
+        <h1>Créer un nouvel article</h1>
+
+        {{ form_start(form, {'attr': {'class': 'article-form'}}) }}
+
+        {% for field in form.children %}
+            {% if field.vars.name != '_token' %} {# Ne pas afficher le champ CSRF #}
+                <div class="form-group">
+                    {{ form_label(field) }}
+                    {% if field.vars.required %}
+                        <span class="required">*</span>
+                    {% endif %}
+                    {{ form_widget(field) }}
+                    {{ form_errors(field) }}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <button class="btn">Publier</button>
+
+        <a class="back-link" href="{{ path('admin_dashboard') }}">Retour au tableau de bord</a>
+
+        {{ form_end(form) }}
+    </main>
 {% endblock %}

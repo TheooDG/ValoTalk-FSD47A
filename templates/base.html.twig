@@ -21,7 +21,7 @@
         <li><a href="{{ path('article_list.scss') }}">Articles</a></li>
 
         {% if is_granted('ROLE_ADMIN') %}
-            <li><a href="{{ path('admin_dashboard') }}">Dashboard admin</a></li>
+            <li><a href="{{ path('admin_dashboard') }}">Administration</a></li>
         {% endif %}
 
         {% if app.user %}
