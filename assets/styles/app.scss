@@ -8,7 +8,7 @@
 @use 'pages/article';
 @use 'pages/article_list';
 @use 'pages/new_article';
-@use 'pages/edit_article';
+@use 'pages/edit_article.scss';
 @use 'pages/profile';
 @use 'pages/edit_profile';
 @use 'pages/change_password';
@@ -20,6 +20,7 @@
 @use 'pages/admin_dashboard';
 @use 'pages/admin_article_edit';
 @use 'pages/admin_user_edit';
+
 
 // Reset et styles de base
 * {
