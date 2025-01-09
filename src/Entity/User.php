@@ -106,8 +106,11 @@ class User extends AbstractEntity implements UserInterface, PasswordAuthenticate
 
     public function getRoles(): array
     {
-        $roles   = $this->roles;
-        $roles[] = 'ROLE_USER';
+        $roles = $this->roles;
+        // Ne pas dupliquer le rôle ROLE_USER si l'utilisateur l'a déjà
+        if (!in_array('ROLE_USER', $roles, true)) {
+            $roles[] = 'ROLE_USER';
+        }
 
         return array_unique($roles);
     }

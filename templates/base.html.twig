@@ -39,6 +39,11 @@
     {% block body %}{% endblock %}
 </div>
 
+<!-- Bouton Scroll to Top -->
+<button id="scrollToTop" style="display:none; position:fixed; bottom:20px; right:20px; z-index:1000; background-color:#007bff; color:white; border:none; border-radius:50%; padding:10px; cursor:pointer;">
+    ↑
+</button>
+
 <!-- Bannière de cookies -->
 <div id="cookie-banner" class="cookie-banner">
     <p>Nous utilisons des cookies pour améliorer votre expérience. En utilisant notre site, vous acceptez notre <a href="/privacy_policy">politique de confidentialité</a>.</p>
@@ -58,5 +63,6 @@
 </footer>
 
 {{ encore_entry_script_tags('app') }}
+{{ encore_entry_script_tags('scroll') }}
 </body>
 </html>
