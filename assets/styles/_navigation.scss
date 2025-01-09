@@ -1,0 +1,146 @@
+@use 'variables' as v;
+
+.header-nav {
+  background-color: v.$bg-color-nav;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: v.$z-nav;
+  padding: v.$spacing-md;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  // Layout de base (mobile-first)
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  // Logo/Titre
+  h1 {
+    font-size: v.$font-size-xl;
+    margin: 0;
+
+    a {
+      color: v.$text-color;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        color: v.$hover-color;
+        transition: color 0.3s ease;
+      }
+    }
+  }
+
+  // Bouton menu hamburger (visible uniquement sur mobile)
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    padding: v.$spacing-sm;
+    cursor: pointer;
+    z-index: v.$z-nav-toggle;
+
+    i {
+      font-size: v.$font-size-xl;
+      color: v.$text-color;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  // Navigation links (mobile par défaut)
+  .nav-links {
+    display: none; // Caché par défaut sur mobile
+    width: 100%;
+    list-style: none;
+    margin: v.$spacing-md 0 0;
+    padding: 0;
+
+    &.active {
+      display: block;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+
+      a {
+        display: block;
+        padding: v.$spacing-md;
+        color: v.$text-color;
+        text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        &:hover {
+          color: v.$hover-color;
+          background-color: rgba(255, 255, 255, 0.05);
+          transition: all 0.3s ease;
+        }
+      }
+
+      &:last-child a {
+        border-bottom: none;
+      }
+    }
+  }
+
+  // Tablette
+  @media (min-width: v.$breakpoint-tablet) {
+    padding: v.$spacing-md v.$spacing-xl;
+
+    .menu-toggle {
+      display: none; // Cache le bouton hamburger
+    }
+
+    .nav-links {
+      display: flex !important; // Toujours visible
+      width: auto;
+      margin: 0;
+      align-items: center;
+      gap: v.$spacing-xl;
+
+      li {
+        margin: 0;
+
+        a {
+          padding: v.$spacing-sm;
+          border-bottom: none;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: v.$hover-color;
+            transition: width 0.3s ease;
+          }
+
+          &:hover::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  // Desktop
+  @media (min-width: v.$breakpoint-desktop) {
+    padding: v.$spacing-md v.$spacing-xl;
+  }
+}
+
+// Ajustement pour le contenu sous la nav fixe
+body {
+  padding-top: calc(60px + 32px); // Hauteur de la nav + padding
+  margin: 0;
+  font-family: v.$font-family-base;
+}

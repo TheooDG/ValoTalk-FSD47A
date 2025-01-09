@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+    <article class="article-container">
+        <header>
+            <h1>{{ article.title }}</h1>
+        </header>
+
+        <div class="article-content">
+            <p>{{ article.content }}</p>
+        </div>
+
+        {% if article.agent %}
+            <p>Agent : <strong>{{ article.agent.name }}</strong></p>
+        {% else %}
+            <p>Aucun agent associé.</p>
+        {% endif %}
+
+        <footer class="article-footer">
+            <p>Publié par <strong>{{ article.createdBy.username }}</strong>, le {{ article.createdAt|date('d/m/Y à H:i') }}</p>
+        </footer>
+    </article>
+
+    <div class="button-group">
+        {% if is_granted('edit', article) %}
+            <a href="{{ path('article_edit', { id: article.id }) }}" class="btn btn-primary">Modifier l'article</a>
+        {% endif %}
+
+        {% if is_granted('delete', article) %}
+            <form action="{{ path('article_delete', { id: article.id }) }}" method="POST" style="display: inline;">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');">Supprimer l'article</button>
+            </form>
+        {% endif %}
+    </div>
+
+    <hr class="article-divider" />
+
+    <section class="comments-section">
+        <h2>Commentaires</h2>
+
+        <div id="comments-container" data-article-id="{{ article.id }}">
+            {% if article.comments is not empty %}
+                {% for comment in article.comments %}
+                    <div class="comment">
+                        <p>{{ comment.content }}</p>
+                        <small>Posté par <strong>{{ comment.createdBy.username }}</strong>, le {{ comment.createdAt|date('d/m/Y à H:i') }}</small>
+                        {% if is_granted('delete_comment', comment) %}
+                            <button class="delete-comment" data-comment-id="{{ comment.id }}" aria-label="Supprimer le commentaire" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        {% endif %}
+
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Aucun commentaire n'a encore été publié.</p>
+            {% endif %}
+        </div>
+
+        <form id="comment-form" data-article-id="{{ article.id }}" method="post">
+            <textarea id="comment-content" name="content" required placeholder="Écrire un commentaire..."></textarea>
+            <button type="submit">Commenter</button>
+        </form>
+    </section>
+{% endblock %}

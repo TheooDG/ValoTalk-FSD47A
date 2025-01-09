@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <div class="registration-page">
+        <header>
+            <h1>Inscription à ValoTalk</h1>
+        </header>
+
+        <main>
+            <section>
+                <p>Remplissez les champs ci-dessous pour vous inscrire.</p>
+
+                <!-- Formulaire d'inscription -->
+                {{ form_start(form, {'method': 'POST', 'attr': {'class': 'registration-form'}}) }}
+
+                <fieldset>
+                    <legend>Informations personnelles</legend>
+
+                    <!-- Champ Nom d'utilisateur -->
+                    <div class="form-group">
+                        {{ form_label(form.username) }}
+                        <span class="required">*</span>
+                        {{ form_widget(form.username) }}
+                        <div class="form-error">{{ form_errors(form.username) }}</div>
+                    </div>
+
+                    <!-- Champ E-mail -->
+                    <div class="form-group">
+                        {{ form_label(form.email) }}
+                        <span class="required">*</span>
+                        {{ form_widget(form.email) }}
+                        <div class="form-error">{{ form_errors(form.email) }}</div>
+                    </div>
+
+                    <!-- Champ Mot de passe -->
+                    <div class="form-group">
+                        {{ form_label(form.password) }}
+                        <span class="required">*</span>
+                        {{ form_widget(form.password) }}
+                        <div class="form-error">{{ form_errors(form.password) }}</div>
+                    </div>
+
+                    <!-- Champ Date de naissance (optionnel) -->
+                    <div class="form-group">
+                        {{ form_label(form.birthdate) }}
+                        {{ form_widget(form.birthdate) }}
+                        <div class="form-error">{{ form_errors(form.birthdate) }}</div>
+                    </div>
+
+                    <button type="submit" class="btn">Créer un compte</button>
+                </fieldset>
+
+                <a class="back-link" href="{{ path('admin_dashboard') }}">Retour au tableau de bord</a>
+
+                {{ form_end(form) }}
+
+                {% for message in app.flashes('error') %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endfor %}
+            </section>
+        </main>
+    </div>
+{% endblock %}

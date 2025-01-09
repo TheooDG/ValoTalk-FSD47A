@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord - Administration{% endblock %}
+
+{% block body %}
+    <main class="admin-dashboard">
+        <h1>Tableau de bord - Administration</h1>
+        <div class="tables-container">
+            <section class="table-section">
+                <h2>Utilisateurs</h2>
+                <table class="dashboard-table users-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom d'utilisateur</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>
+                                <a href="{{ path('admin_user_edit', { id: user.id }) }}" class="btn-edit-user">Modifier</a>
+                                <a href="{{ path('admin_user_delete', { id: user.id }) }}" class="btn-delete-user" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?')">Supprimer</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{{ path('admin_user_create') }}" class="btn-create-user">Créer un utilisateur</a>
+            </section>
+
+            <section class="table-section">
+                <h2>Articles</h2>
+                <table class="dashboard-table articles-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titre</th>
+                        <th>Auteur</th>
+                        <th>Date de publication</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for article in articles %}
+                        <tr>
+                            <td>{{ article.id }}</td>
+                            <td>{{ article.title }}</td>
+                            <td>{{ article.createdBy.username }}</td>
+                            <td>{{ article.createdAt|date('d/m/Y') }}</td>
+                            <td>
+                                <a href="{{ path('admin_article_edit', { id: article.id }) }}" class="btn-edit-article">Modifier</a>
+                                <a href="{{ path('admin_article_delete', { id: article.id }) }}" class="btn-delete-article" onclick="return confirm('Voulez-vous vraiment supprimer cet article ?')">Supprimer</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{{ path('admin_article_create') }}" class="btn-create-article">Créer un article</a>
+            </section>
+        </div>
+    </main>
+{% endblock %}

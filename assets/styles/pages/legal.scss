@@ -1,0 +1,43 @@
+@use '../variables' as v;
+
+section {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.legal-paragraph { // Sélecteur spécifique pour les paragraphes
+  margin-bottom: 1.5rem; // Ajuste l'espacement entre les paragraphes
+  color: #555;
+}
+
+a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+address {
+  font-style: normal;
+  color: #555;
+}
+
+section:last-of-type .legal-paragraph { // S'assurer qu'il n'y a pas d'espacement supplémentaire dans le dernier paragraphe
+  margin-bottom: 0;
+}

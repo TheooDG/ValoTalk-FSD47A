@@ -1,0 +1,42 @@
+@use '../variables' as v;
+
+:root {
+  --cookie-banner-display: none;
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  z-index: 1000;
+  display: var(--cookie-banner-display);
+
+  p {
+    margin: 0;
+    color: #333;
+  }
+
+  a {
+    color: v.$bg-color-nav;
+  }
+
+  button {
+    margin: 0.5rem 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: v.$bg-color-nav;
+    color: white;
+
+    &:hover {
+      background-color: #d9424f;
+      color: white;
+    }
+  }
+}

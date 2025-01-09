@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main>
+        <h1>Modifier l'article</h1>
+
+        {{ form_start(form, {'attr': {'class': 'article-form'}}) }}
+
+        {% for field in form.children %}
+            {% if field.vars.name != '_token' %}
+                <div class="form-group">
+                    {{ form_label(field) }}
+                    {% if field.vars.required %}
+                        <span class="required">*</span>
+                    {% endif %}
+                    {{ form_widget(field) }}
+                    {{ form_errors(field) }}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <button class="btn">Mettre à jour</button>
+
+        <a href="{{ path('admin_dashboard') }}" class="btn-back">Retour au tableau de bord</a>
+
+        {{ form_end(form) }}
+    </main>
+{% endblock %}

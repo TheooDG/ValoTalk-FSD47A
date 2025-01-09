@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="profile-page">
+        <h1>Profil de {{ user.username }}</h1>
+
+        <div class="user-info">
+            {% if user.birthdate %}
+                <p class="user-birthdate">Date de naissance : {{ user.birthdate|date('d/m/Y') }}</p>
+            {% endif %}
+        </div>
+
+        <div class="profile-actions">
+            <a href="{{ path('user_profile_edit', { id: user.id }) }}" class="btn-edit">Modifier le profil</a> |
+            <a href="{{ path('user_change_password', { id: user.id }) }}" class="btn-change-password">Changer le mot de passe</a> |
+            <a href="{{ path('user_delete_profile', { id: user.id }) }}" class="btn-delete" onclick="return confirm('Voulez-vous vraiment supprimer votre compte ?')">Supprimer le compte</a>
+        </div>
+
+        <h2>Articles publiés</h2>
+        <ul class="user-articles">
+            {% for article in articles %}
+                <li>
+                    <a href="{{ path('article_show', { 'id': article.id }) }}">{{ article.title }}</a>
+                </li>
+            {% else %}
+                <li class="no-articles">Aucun article publié.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
