@@ -69,13 +69,10 @@ class AdminArticleController extends AbstractController
     #[Route('/admin/articles/{id}/delete', name: 'admin_article_delete')]
     public function delete(EntityManagerInterface $entityManager, Request $request, Article $article): Response
     {
-        // Vérification du token CSRF
-        if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($article);
-            $entityManager->flush();
+        $entityManager->remove($article);
+        $entityManager->flush();
 
-            $this->addFlash('success', 'Article supprimé avec succès.');
-        }
+        $this->addFlash('success', 'Article supprimé avec succès.');
 
         return $this->redirectToRoute('admin_dashboard');
     }
